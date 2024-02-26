@@ -1,13 +1,14 @@
 module.exports = {
-  tabWidth: 2,
-  semi: false,
   printWidth: 80,
+  tabWidth: 2,
+  // Print semicolons at the ends of statements.
+  semi: true,
   singleQuote: true,
-  proseWrap: "never",
+  proseWrap: 'never',
+  bracketSpacing: true,
   htmlWhitespaceSensitivity: 'ignore',
-  bracketSameLine: false,
   vueIndentScriptAndStyle: false,
   singleAttributePerLine: false,
   arrowParens: 'always',
-  bracketSameLine: false,
-};
+  bracketSameLine: 'avoid',
+}

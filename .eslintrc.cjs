@@ -9,13 +9,13 @@ module.exports = {
     'eslint:recommended',
     // typescript
     'plugin:@typescript-eslint/recommended',
-    // prettier
-    'prettier',
     'plugin:prettier/recommended',
     // vue
     'plugin:vue/vue3-essential',
     // flyer 声明的全局配置
     './node_modules/@gly/flyer/src/storm-mini-program/.eslintrc.cjs',
+    // prettier
+    'prettier',
   ],
   overrides: [],
   parser: 'vue-eslint-parser',
