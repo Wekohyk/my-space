@@ -9,6 +9,6 @@ module.exports = {
   htmlWhitespaceSensitivity: 'ignore',
   vueIndentScriptAndStyle: false,
   singleAttributePerLine: false,
-  arrowParens: 'always',
-  bracketSameLine: 'avoid',
-}
+  arrowParens: 'avoid',
+  bracketSameLine: false,
+};

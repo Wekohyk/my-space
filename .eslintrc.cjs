@@ -13,7 +13,7 @@ module.exports = {
     // vue
     'plugin:vue/vue3-essential',
     // flyer 声明的全局配置
-    './node_modules/@gly/flyer/src/storm-mini-program/.eslintrc.cjs',
+    // './node_modules/@gly/flyer/src/storm-mini-program/.eslintrc.cjs',
     // prettier
     'prettier',
   ],
@@ -45,4 +45,4 @@ module.exports = {
     useAttrs: false,
     useSlots: false,
   },
-}
+};
