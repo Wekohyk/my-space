@@ -22,6 +22,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    /**
+     * typescript-eslint/parser ---> is a parser that allows ESLint to lint TypeScript code.
+     * npm i @typescript-eslint/parser -D
+     */
     parser: '@typescript-eslint/parser',
   },
   plugins: ['vue', '@typescript-eslint', 'prettier'],
@@ -33,6 +37,7 @@ module.exports = {
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-namespace': 'off',
   },
+  // globals --> Define global variables
   globals: {
     // vue3 setup 的编译器语法糖
     defineProps: false,
@@ -40,4 +45,4 @@ module.exports = {
     useAttrs: false,
     useSlots: false,
   },
-};
+}
