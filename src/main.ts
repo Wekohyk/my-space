@@ -5,6 +5,13 @@ import { createPinia } from 'pinia';
 import pinia from './stores';
 import persist from 'pinia-plugin-persistedstate';
 import i18n from './lang';
+/**
+ * Import the Unocss core styles
+ * Best placed after reset style, before uno.css
+ */
+import './assets/styles/index.scss';
+// Import the Unocss utilities styles
+import 'uno.css';
 
 const app = createApp(App);
 app.use(pinia);

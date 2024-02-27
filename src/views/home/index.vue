@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import { isEn } from '../../lang/index';
-import { showTime } from '../../utils/getShowTime';
 
 const local = isEn
   ? {
@@ -15,10 +14,6 @@ const local = isEn
   : {
       language: 'zh',
     };
-
-setInterval(() => {
-  console.log(showTime());
-}, 1000);
 </script>
 
 <style scoped lang="sass"></style>
