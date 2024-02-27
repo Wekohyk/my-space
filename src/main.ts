@@ -12,6 +12,7 @@ import i18n from './lang';
 import './assets/styles/index.scss';
 // Import the Unocss utilities styles
 import 'uno.css';
+import './assets/text/text.css';
 
 const app = createApp(App);
 app.use(pinia);

@@ -135,5 +135,12 @@ export default defineConfig({
         `;
       },
     ],
+    // Defines the import font writing
+    [
+      'font-PacificoRegular',
+      {
+        'font-family': 'PacificoRegular',
+      },
+    ],
   ],
 });

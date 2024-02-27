@@ -6,7 +6,7 @@
     leave-to-class="opacity-0"
   >
     <div
-      class="fixed top-0 left-0 right-0 bottom-0 bg-black/70 transition-opacity duration-300 ease-in"
+      class="fixed top-0 left-0 right-0 bottom-0 bg-black/70 transition-opacity duration-300 ease-in -z-9999999999"
       v-if="mask"
     ></div>
   </transition>
@@ -22,4 +22,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="sass"></style>
+<style scoped lang="scss"></style>

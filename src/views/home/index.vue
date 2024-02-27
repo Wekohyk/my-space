@@ -1,6 +1,6 @@
 <template>
-  <div>{{ $t('home') }}</div>
-  <div>{{ local.language }}</div>
+  <div class="text-#ffffff">{{ $t('home') }}</div>
+  <div class="font-PacificoRegular execText">{{ local.language }}</div>
   <div></div>
 </template>
 
@@ -16,4 +16,4 @@ const local = isEn
     };
 </script>
 
-<style scoped lang="sass"></style>
+<style lang="scss" scoped></style>
