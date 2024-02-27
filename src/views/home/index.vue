@@ -1,6 +1,6 @@
 <template>
   <div class="text-#ffffff">{{ $t('home') }}</div>
-  <div class="font-PacificoRegular execText">{{ local.language }}</div>
+  <div class="font-PacificoRegular">{{ local.language }}</div>
   <div></div>
 </template>
 
