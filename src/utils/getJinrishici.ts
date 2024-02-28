@@ -5,7 +5,7 @@ type PoetryOfToday = Response;
 type PoetryOfTodayError = ErrData;
 
 /**
- * @file jinrishici.d.ts
+ * @file getRandomAssets.d.ts
  * @description The Poetry Today API returns a data type definition
  * @see https://www.jinrishici.com
  */

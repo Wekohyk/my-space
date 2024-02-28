@@ -1,3 +1,8 @@
+/**
+ * @file getRandomAssets.d.ts
+ * @description The Poetry Today API returns a data type definition
+ * @see https://www.jinrishici.com
+ */
 interface Origin {
   title: string;
   dynasty: string;
@@ -24,7 +29,7 @@ interface Response {
 }
 
 /**
- * error response
+ * get random assets error response
  * errCode 是错误码，目前只有以下几种错误码，您也简单判断 HTTP 头中的状态码，对于错误返回，我们总不会返回 200
  * 1001 ：内部服务器错误，HTTP状态码 500
  * 1002 ：API路径不对，HTTP状态码 404
