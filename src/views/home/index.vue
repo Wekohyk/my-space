@@ -1,19 +1,9 @@
 <template>
-  <div class="text-#ffffff">{{ $t('home') }}</div>
-  <div class="font-PacificoRegular">{{ local.language }}</div>
-  <div></div>
+  <div class="flex justify-center items-center">
+    <div class="font-PacificoRegular">{{ $t('wekoHome') }}</div>
+  </div>
 </template>
 
-<script setup lang="ts">
-import { isEn } from '../../lang/index';
-
-const local = isEn
-  ? {
-      language: 'en',
-    }
-  : {
-      language: 'zh',
-    };
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped></style>
