@@ -44,5 +44,6 @@ module.exports = {
     defineEmits: false,
     useAttrs: false,
     useSlots: false,
+    ErrData: false,
   },
 };

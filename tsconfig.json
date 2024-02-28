@@ -22,9 +22,10 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/types/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tsBringInVue.d.ts"
+    "./node_modules/@types"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
