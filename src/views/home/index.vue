@@ -14,39 +14,52 @@
 
   <div class="fixed top-0 right-0 bottom-0 left-0">
     <div class="flex justify-center items-center h-100vh">
-      <div class="font-PacificoRegular text-[var(--text)]">
-        {{ $t('wekoHome') }}
+      <!-- left box -->
+      <div class="flex flex-col justify-center items-center text-center">
+        <div class="flex gap-10px items-center">
+          <div>
+            <img
+              class="w-5vh h-5vh rounded-50%"
+              src="../../assets/images/avatar.png"
+            />
+          </div>
+          <div class="font-PacificoRegular text-[var(--text)] h-full">
+            {{ $t('wekoHome') }}
+          </div>
+        </div>
+        <div
+          class="h-1 w-200 bg-gradient-to-b from-[var(--background)] to-[var(--text)] opacity-14 my-20px"
+        ></div>
+        <div class="text-[var(--text)]">
+          {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
+        </div>
       </div>
+      <!-- right box -->
+      <div class="flex flex-col items-center"></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import * as jinrishici from 'jinrishici';
+import { isEn } from '../../lang/index';
+import { getJinrishici } from '../../utils/getJinrishici';
 
-// The Poetry Today API returns a data type definition
-type PoetryOfToday = Response;
-type PoetryOfTodayError = ErrData;
-
+const poetry = ref('');
+const isPoetry = ref(false);
 const mask = ref(false);
 onMounted(() => {
   mask.value = true;
+  getJinrishici()
+    .then(result => {
+      console.log(result);
+      poetry.value = result.data.content;
+      isPoetry.value = true;
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
-
-/**
- * @file jinrishici.d.ts
- * @description The Poetry Today API returns a data type definition
- * @see https://www.jinrishici.com
- */
-jinrishici.load(
-  (result: PoetryOfToday) => {
-    console.log(result);
-  },
-  (errData: PoetryOfTodayError) => {
-    console.log(errData);
-  },
-);
 </script>
 
 <style lang="scss" scoped></style>

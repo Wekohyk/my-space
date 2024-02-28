@@ -4,3 +4,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'STXingkai';
+  src: url('./STXingkai.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
