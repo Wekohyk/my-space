@@ -1,0 +1,20 @@
+// 深浅模式
+:root {
+  color-scheme: light dark;
+
+  --textOrigin: 255, 255, 255;
+  --backgroundOrigin: 0, 0, 0;
+
+  --text: rgb(var(--textOrigin));
+  --background: rgb(var(--backgroundOrigin));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --textOrigin: 0, 0, 0;
+    --backgroundOrigin: 255, 255, 255;
+
+    --text: rgb(var(--textOrigin));
+    --background: rgb(var(--backgroundOrigin));
+  }
+}
