@@ -7,10 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Background: (typeof import('./src/components/Background.vue'))['default'];
     BackgroundImg: (typeof import('./src/components/BackgroundImg.vue'))['default'];
     Loading: (typeof import('./src/components/Loading.vue'))['default'];
-    Londing: (typeof import('./src/components/Londing.vue'))['default'];
     MyMessage: (typeof import('./src/components/MyMessage.vue'))['default'];
     RouterLink: (typeof import('vue-router'))['RouterLink'];
     RouterView: (typeof import('vue-router'))['RouterView'];
