@@ -29,7 +29,7 @@ const store = homeStore();
 const imgUrl = ref('');
 const emit = defineEmits(['loadComplete']);
 
-const random = Math.floor(Math.random() * 10 - 1);
+const random = Math.floor(Math.random() * 12);
 
 const changeBg = (type: string) => {
   if (type === '0') {
