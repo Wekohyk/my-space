@@ -7,14 +7,14 @@
           <div>
             <img class="w-5vh h-5vh rounded-50%" src="/images/avatar.webp" />
           </div>
-          <div class="font-PacificoRegular text-[var(--text)] h-full">
+          <div class="font-PacificoRegular text-#fff h-full text-1.5rem">
             {{ $t('wekoHome') }}
           </div>
         </div>
         <div
-          class="h-1 w-200 bg-gradient-to-b from-[var(--background)] to-[var(--text)] opacity-40 my-20px"
+          class="h-1 w-20rem bg-gradient-to-l from-#000 via-#fff to-#000 opacity-60 my-20px"
         ></div>
-        <div class="text-[var(--text)]">
+        <div class="text-#fff text-1.5rem">
           {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
         </div>
       </div>
