@@ -75,9 +75,9 @@ const render = () => {
   requestAnimationFrame(render);
 };
 
-const throttle = (fn: (...args: any) => void, delay: number) => {
+const throttle = (fn: (...args: MouseEvent[]) => void, delay: number) => {
   let last = 0;
-  return (...args: any) => {
+  return (...args: MouseEvent[]) => {
     const now = Date.now();
     if (now - last > delay) {
       last = now;
