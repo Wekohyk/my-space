@@ -29,9 +29,11 @@ const store = homeStore();
 const imgUrl = ref('');
 const emit = defineEmits(['loadComplete']);
 
+const random = Math.floor(Math.random() * 10 - 1);
+
 const changeBg = (type: string) => {
   if (type === '0') {
-    imgUrl.value = `/images/acquiesceBackground.webp`;
+    imgUrl.value = `/images/acquiesceBackground${random}.webp`;
   } else if (type === '1') {
     imgUrl.value = 'https://api.dujin.org/bing/1920.php';
   } else if (type === '2') {

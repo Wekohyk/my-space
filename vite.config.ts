@@ -10,11 +10,13 @@ export default defineConfig({
   plugins: [
     vue(),
     unocss(),
+
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
       resolvers: [ElementPlusResolver()],
+      globs: ['!src'],
     }),
   ],
   // Server configuration options.
