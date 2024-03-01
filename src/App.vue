@@ -1,6 +1,7 @@
 <template>
   <Loading></Loading>
   <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
+  <Mousemove></Mousemove>
   <MyMessage></MyMessage>
   <router-view></router-view>
 </template>
@@ -11,6 +12,8 @@ import BackgroundImg from './components/BackgroundImg.vue';
 import { helloInit } from './utils/getTIme';
 import MyMessage from './components/MyMessage.vue';
 import Loading from './components/Loading.vue';
+import Mousemove from './components/Mousemove.vue';
+
 // loading complete event
 const loadComplete = () => {
   nextTick(() => {
