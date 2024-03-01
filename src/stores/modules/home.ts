@@ -6,6 +6,7 @@ interface State {
   innerWidth: number; // Window width
   mobileOpenState: boolean; // The mobile terminal is enabled
   mobileFuncState: boolean; // The mobile function zone is enabled
+  imgLoadStatus: boolean; //  BackgroundImg loading status
 }
 
 export const homeStore = defineStore(

@@ -11,10 +11,10 @@ import BackgroundImg from './components/BackgroundImg.vue';
 import { helloInit } from './utils/getTIme';
 import MyMessage from './components/MyMessage.vue';
 import Loading from './components/Loading.vue';
-// 加载完成事件
+// loading complete event
 const loadComplete = () => {
   nextTick(() => {
-    // 欢迎提示
+    // welcome message
     helloInit();
   });
 };
