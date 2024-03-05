@@ -3,6 +3,7 @@
     <Loading></Loading>
     <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
     <Mousemove></Mousemove>
+    <SnowFlake></SnowFlake>
     <MyMessage></MyMessage>
     <router-view></router-view>
     <div
@@ -25,6 +26,7 @@ import { helloInit } from './utils/getTIme';
 import MyMessage from './components/MyMessage.vue';
 import Loading from './components/Loading.vue';
 import Mousemove from './components/Mousemove.vue';
+import SnowFlake from './components/SnowFlake.vue';
 
 // loading complete event
 const loadComplete = () => {
