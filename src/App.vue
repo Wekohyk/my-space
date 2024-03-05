@@ -2,8 +2,7 @@
   <div>
     <Loading></Loading>
     <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
-    <Mousemove></Mousemove>
-    <SnowFlake></SnowFlake>
+    <Mousemove :toggleEvent="toggleEffect"></Mousemove>
     <MyMessage></MyMessage>
     <router-view></router-view>
     <div
@@ -11,7 +10,7 @@
     >
       <div
         class="iconfont toggle text-2rem text-#fff opacity-40"
-        @click="toggleEffect"
+        @click="toggleEffectClick"
       >
         &#xe8a8;
       </div>
@@ -20,13 +19,15 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 import BackgroundImg from './components/BackgroundImg.vue';
 import { helloInit } from './utils/getTIme';
 import MyMessage from './components/MyMessage.vue';
 import Loading from './components/Loading.vue';
 import Mousemove from './components/Mousemove.vue';
-import SnowFlake from './components/SnowFlake.vue';
+import { ToggleEvent } from './types/home';
+
+const toggleEffect = ref<ToggleEvent>('mouseMove');
 
 // loading complete event
 const loadComplete = () => {
@@ -36,8 +37,12 @@ const loadComplete = () => {
   });
 };
 
-const toggleEffect = () => {
-  console.log(123);
+const toggleEffectClick = () => {
+  if (toggleEffect.value === 'mouseMove') {
+    toggleEffect.value = 'none';
+  } else {
+    toggleEffect.value = 'mouseMove';
+  }
 };
 </script>
 

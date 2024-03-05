@@ -1,23 +1,35 @@
 <template>
-  <teleport to="body">
-    <!-- before buffer -->
-    <canvas
-      class="w-100vw h-100vh fixed left-0 top-0 z-1 pointer-events-none"
-      ref="displayCanvas"
-      id="displayCanvas"
-    ></canvas>
-    <!-- after buffer -->
-    <canvas
-      class="w-100vw h-100vh fixed left-0 top-0 z-0 pointer-events-none"
-      ref="bufferCanvas"
-      id="bufferCanvas"
-    ></canvas>
-  </teleport>
+  <div v-if="props.toggleEvent === 'mouseMove'">
+    <teleport to="body">
+      <!-- before buffer -->
+      <canvas
+        class="w-100vw h-100vh fixed left-0 top-0 z-1 pointer-events-none"
+        ref="displayCanvas"
+        id="displayCanvas"
+      ></canvas>
+      <!-- after buffer -->
+      <canvas
+        class="w-100vw h-100vh fixed left-0 top-0 z-0 pointer-events-none"
+        ref="bufferCanvas"
+        id="bufferCanvas"
+      ></canvas>
+    </teleport>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { onUnmounted } from 'vue';
 import { ref, onMounted } from 'vue';
+import type { ToggleEvent } from '../types/home';
+
+const props = withDefaults(
+  defineProps<{
+    toggleEvent: ToggleEvent;
+  }>(),
+  {
+    toggleEvent: 'none',
+  },
+);
 
 // before buffer use to draw
 const displayCanvas = ref<HTMLCanvasElement>();
