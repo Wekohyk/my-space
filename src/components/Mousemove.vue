@@ -1,9 +1,16 @@
 <template>
   <teleport to="body">
+    <!-- before buffer -->
     <canvas
       class="w-100vw h-100vh fixed left-0 top-0 z-1 pointer-events-none"
-      ref="canvas"
-      id="canvas"
+      ref="displayCanvas"
+      id="displayCanvas"
+    ></canvas>
+    <!-- after buffer -->
+    <canvas
+      class="w-100vw h-100vh fixed left-0 top-0 z-0 pointer-events-none"
+      ref="bufferCanvas"
+      id="bufferCanvas"
     ></canvas>
   </teleport>
 </template>
@@ -12,7 +19,10 @@
 import { onUnmounted } from 'vue';
 import { ref, onMounted } from 'vue';
 
-const canvas = ref<HTMLCanvasElement>();
+// before buffer use to draw
+const displayCanvas = ref<HTMLCanvasElement>();
+// after buffer use to render
+const bufferCanvas = ref<HTMLCanvasElement>();
 const circleList = ref<Circle[]>([]);
 
 const random = (min: number, max: number) => {
@@ -53,25 +63,46 @@ class Circle {
   update() {
     this.x += this.vx;
     this.y += this.vy;
-    this.a *= 0.95;
+    this.a *= 0.85;
     this.size += 0.3;
   }
 }
 
 const render = () => {
-  const context = canvas.value?.getContext('2d');
-  if (canvas.value && context) {
-    context.clearRect(0, 0, canvas.value.width, canvas.value.height);
+  const bufferContext = bufferCanvas.value?.getContext('2d');
+  const displayContext = displayCanvas.value?.getContext('2d');
+  if (bufferCanvas.value && bufferContext && displayContext) {
+    bufferContext.clearRect(
+      0,
+      0,
+      bufferCanvas.value.width,
+      bufferCanvas.value.height,
+    );
 
     circleList.value.forEach((ele: Circle, i) => {
-      ele.draw(context);
+      ele.draw(bufferContext);
 
       if (ele.a < 0.05) {
         circleList.value.splice(i, 1);
       }
     });
+    // Copy the contents of the bufferCanvas to the displayCanvas
+    if (displayCanvas.value) {
+      displayContext.clearRect(
+        0,
+        0,
+        displayCanvas.value.width,
+        displayCanvas.value.height,
+      );
+    }
+    displayContext.drawImage(
+      bufferCanvas.value,
+      0,
+      0,
+      bufferCanvas.value.width,
+      bufferCanvas.value.height,
+    );
   }
-
   requestAnimationFrame(render);
 };
 
@@ -92,9 +123,9 @@ const onMouseMove = throttle((e: MouseEvent) => {
 }, 0);
 
 onMounted(() => {
-  if (canvas.value) {
-    canvas.value.width = window.innerWidth;
-    canvas.value.height = window.innerHeight;
+  if (bufferCanvas.value) {
+    bufferCanvas.value.width = window.innerWidth;
+    bufferCanvas.value.height = window.innerHeight;
     document.body.addEventListener('mousemove', onMouseMove);
     render();
   }
