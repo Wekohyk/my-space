@@ -129,6 +129,17 @@ const throttle = (fn: (...args: MouseEvent[]) => void, delay: number) => {
   };
 };
 
+const resizeHandler = () => {
+  if (bufferCanvas.value) {
+    bufferCanvas.value.width = window.innerWidth;
+    bufferCanvas.value.height = window.innerHeight;
+  }
+  if (displayCanvas.value) {
+    displayCanvas.value.width = window.innerWidth;
+    displayCanvas.value.height = window.innerHeight;
+  }
+};
+
 const onMouseMove = throttle((e: MouseEvent) => {
   const newCircle = new Circle(e.clientX, e.clientY);
   circleList.value.push(newCircle);
@@ -139,12 +150,14 @@ onMounted(() => {
     bufferCanvas.value.width = window.innerWidth;
     bufferCanvas.value.height = window.innerHeight;
     document.body.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('resize', resizeHandler);
     render();
   }
 });
 
 onUnmounted(() => {
   document.body.removeEventListener('mousemove', onMouseMove);
+  window.removeEventListener('resize', resizeHandler);
 });
 </script>
 
