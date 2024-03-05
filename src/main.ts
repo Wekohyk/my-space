@@ -7,6 +7,7 @@ import persist from 'pinia-plugin-persistedstate';
 import i18n from './lang';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
+import './assets/iconfont/iconfont.css';
 /**
  * Import the Unocss core styles
  * Best placed after reset style, before uno.css
