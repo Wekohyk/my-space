@@ -56,8 +56,8 @@ const siteName = import.meta.env.VITE_SITE_NAME;
   visibility: hidden;
   transform: translateY(-100%);
   transition:
-    transform 0.3s 1s ease-out,
-    visibility 0.3s 1s ease-out;
+    transform 0.3s 1.5s ease-out,
+    visibility 0.3s 1.5s ease-out;
   .loader {
     .loader-circle,
     .loader-text {
@@ -68,11 +68,11 @@ const siteName = import.meta.env.VITE_SITE_NAME;
   .loader-section {
     &.section-left {
       transform: translateX(-100%);
-      transition: transform 0.5s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: transform 1s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
     &.section-right {
       transform: translateX(100%);
-      transition: transform 0.5s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: transform 1s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
   }
 }
