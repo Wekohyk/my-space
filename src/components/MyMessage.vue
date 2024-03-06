@@ -7,14 +7,14 @@
           <div>
             <img class="w-5vh h-5vh rounded-50%" src="/images/avatar.webp" />
           </div>
-          <div class="font-PacificoRegular text-#fff h-full text-1.5rem">
+          <div class="animation" :data-text="$t('wekoHome')">
             {{ $t('wekoHome') }}
           </div>
         </div>
         <div
           class="h-1 w-20rem bg-gradient-to-l from-#000 via-#fff to-#000 opacity-60 my-20px"
         ></div>
-        <div class="text-#fff text-1.5rem font-STXingkai">
+        <div class="font-STXingkai text-#fff text-1.5rem">
           {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
         </div>
       </div>
@@ -46,4 +46,36 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.animation {
+  font-family: PacificoRegular;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #222;
+  position: relative;
+
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid #fff;
+    animation: move 8s linear infinite;
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
+  }
+
+  @keyframes move {
+    0%,
+    10%,
+    100% {
+      width: 0;
+    }
+
+    70%,
+    90% {
+      width: 100%;
+    }
+  }
+}
+</style>
