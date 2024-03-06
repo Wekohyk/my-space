@@ -1,7 +1,7 @@
 <template>
   <Loading></Loading>
   <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
-  <Mousemove :toggleEvent="toggleEffect"></Mousemove>
+  <Mousemove v-if="toggleEffect"></Mousemove>
   <div>
     <div class="boxDrawer" v-if="drawer">
       <LineCombination></LineCombination>
@@ -46,7 +46,6 @@ import { helloInit } from './utils/getTIme';
 import MyMessage from './components/MyMessage.vue';
 import Loading from './components/Loading.vue';
 import Mousemove from './components/Mousemove.vue';
-import { ToggleEvent } from './types/home';
 import LineCombination from './components/LineCombination.vue';
 import Switch from './components/Switch.vue';
 
@@ -56,7 +55,7 @@ const handleSwitchChange = (value: boolean) => {
   console.log('drawer.value', drawer.value);
 };
 // toggle effect
-const toggleEffect = ref<ToggleEvent>('mouseMove');
+const toggleEffect = ref<boolean>(true);
 
 // loading complete event
 const loadComplete = () => {
@@ -67,11 +66,7 @@ const loadComplete = () => {
 };
 
 const toggleEffectClick = () => {
-  if (toggleEffect.value === 'mouseMove') {
-    toggleEffect.value = 'none';
-  } else {
-    toggleEffect.value = 'mouseMove';
-  }
+  toggleEffect.value = !toggleEffect.value;
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="props.toggleEvent === 'mouseMove'">
+  <div>
     <teleport to="body">
       <!-- before buffer -->
       <canvas
@@ -20,16 +20,6 @@
 <script setup lang="ts">
 import { onUnmounted } from 'vue';
 import { ref, onMounted } from 'vue';
-import type { ToggleEvent } from '../types/home';
-
-const props = withDefaults(
-  defineProps<{
-    toggleEvent: ToggleEvent;
-  }>(),
-  {
-    toggleEvent: 'none',
-  },
-);
 
 // before buffer use to draw
 const displayCanvas = ref<HTMLCanvasElement>();
