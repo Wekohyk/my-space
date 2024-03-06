@@ -11,8 +11,10 @@
     <div class="boxDrawer" v-if="drawer">
       <LineCombination></LineCombination>
     </div>
+
     <!-- mid -->
     <MyMessage></MyMessage>
+
     <!-- button -->
     <div
       class="absolute top-10vh right-5vh w-4rem h-4rem flex justify-center items-center flex-col gap-10"

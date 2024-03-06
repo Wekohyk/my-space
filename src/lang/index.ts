@@ -8,6 +8,8 @@ export const isEn = navigator.language.includes('en') === true;
 
 // restraint all lang object to typeof zh
 const i18n = createI18n<[typeof zh], 'zh' | 'en'>({
+  legacy: false,
+  globalInjection: true,
   locale: isEn ? 'en' : 'zh',
   messages: {
     zh,
@@ -16,3 +18,5 @@ const i18n = createI18n<[typeof zh], 'zh' | 'en'>({
 });
 
 export default i18n;
+
+export const $t = i18n.global.t.bind(i18n.global);

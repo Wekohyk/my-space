@@ -1,6 +1,6 @@
 <template>
   <div class="fixed top-0 right-0 bottom-0 left-0">
-    <div class="flex justify-center items-center h-100vh">
+    <div class="flex justify-center items-center h-100vh gap-20">
       <!-- left box -->
       <div class="flex flex-col justify-center items-center text-center">
         <div class="flex gap-10px items-center">
@@ -19,7 +19,9 @@
         </div>
       </div>
       <!-- right box -->
-      <div class="flex flex-col items-center"></div>
+      <div class="flex flex-col items-center">
+        <Weather></Weather>
+      </div>
     </div>
   </div>
 </template>
@@ -27,6 +29,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { getJinrishici } from '../utils/getJinrishici';
+import Weather from './Weather.vue';
 
 import { isEn } from '../lang/index';
 const poetry = ref('');
