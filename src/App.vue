@@ -3,7 +3,7 @@
   <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
   <Mousemove v-if="toggleEffect"></Mousemove>
   <Total
-    :title="messageNum === '1' ? local.message1 : local.message2"
+    :title="messageNum === '1' ? $t('message1') : $t('message2')"
     :visible="visible"
   ></Total>
   <div>
@@ -58,17 +58,6 @@ import Mousemove from './components/Mousemove.vue';
 import LineCombination from './components/LineCombination.vue';
 import Switch from './components/Switch.vue';
 import Total from './components/Total.vue';
-import isEn from './lang/index';
-
-const local = isEn
-  ? {
-      message1: '是否显示',
-      message2: '是否使用鼠标移动特效',
-    }
-  : {
-      message1: 'Whether to display',
-      message2: 'Whether to use mouse move effect',
-    };
 
 const drawer = ref<boolean>(false);
 const visible = ref<boolean>(false);
