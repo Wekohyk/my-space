@@ -10,7 +10,7 @@
       class="w-full flex justify-center h-15vh items-center transition-opacity duration-300 ease-in"
     >
       <div
-        class="fixed flex justify-center items-center w-auto h-auto bg-#000 px-1vw py-2vh rounded-15"
+        class="fixed flex justify-center items-center w-auto h-auto bg-#000 px-1vw py-1vh rounded-15"
       >
         <div class="text-#fff">{{ props.title }}</div>
       </div>

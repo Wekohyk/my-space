@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "26525875",
+      "name": "鼠标滚轮",
+      "font_class": "mouseM",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
       "icon_id": "2076338",
       "name": "切换",
       "font_class": "qiehuan",

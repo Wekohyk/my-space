@@ -2,7 +2,10 @@
   <Loading></Loading>
   <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
   <Mousemove v-if="toggleEffect"></Mousemove>
-  <Total :title="local.message1" :visible="visible"></Total>
+  <Total
+    :title="messageNum === '1' ? local.message1 : local.message2"
+    :visible="visible"
+  ></Total>
   <div>
     <!-- drawer -->
     <div class="boxDrawer" v-if="drawer">
@@ -14,8 +17,9 @@
     <div
       class="absolute top-10vh right-5vh w-4rem h-4rem flex justify-center items-center flex-col gap-10"
     >
-      <div @mouseenter="mouseenter" @mouseleave="mouseleave">
+      <div @mouseenter="mouseenter('1')" @mouseleave="mouseleave">
         <Switch
+          class="toggle"
           :width="76"
           :height="34"
           :openIcon="true"
@@ -34,8 +38,10 @@
       <div
         class="iconfont toggle text-2rem text-#fff opacity-40"
         @click="toggleEffectClick"
+        @mouseenter="mouseenter('2')"
+        @mouseleave="mouseleave()"
       >
-        &#xe8a8;
+        &#xe6bd;
       </div>
     </div>
   </div>
@@ -57,18 +63,27 @@ import isEn from './lang/index';
 const local = isEn
   ? {
       message1: '是否显示',
+      message2: '是否使用鼠标移动特效',
     }
   : {
       message1: 'Whether to display',
+      message2: 'Whether to use mouse move effect',
     };
 
 const drawer = ref<boolean>(false);
 const visible = ref<boolean>(false);
+const messageNum = ref<string>('1');
 const handleSwitchChange = (value: boolean) => {
   drawer.value = !value;
   console.log('drawer.value', drawer.value);
 };
-const mouseenter = () => {
+const mouseenter = (id: string) => {
+  if (id === '1') {
+    messageNum.value = '1';
+  }
+  if (id === '2') {
+    messageNum.value = '2';
+  }
   visible.value = true;
 };
 const mouseleave = () => {
@@ -94,7 +109,6 @@ const toggleEffectClick = () => {
 .toggle {
   transition: all 0.5s;
   &:hover {
-    font-size: 4rem;
     transition: all 0.5s;
     opacity: 1;
     fill: unset;

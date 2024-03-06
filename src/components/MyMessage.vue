@@ -63,6 +63,7 @@ onMounted(() => {
     border-right: 4px solid #fff;
     animation: move 8s linear infinite;
     filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
+    pointer-events: none;
   }
 
   @keyframes move {
