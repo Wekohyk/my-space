@@ -21,7 +21,7 @@
           @update:own-open="handleSwitchChange"
         >
           <template #openIcon>
-            <span :style="{ color: '#333', marginRight: '2px' }">ON</span>
+            <span :style="{ color: '#fff', marginRight: '2px' }">ON</span>
           </template>
           <template #closeIcon>
             <span :style="{ color: '#fff', marginLeft: '4px' }">OFF</span>

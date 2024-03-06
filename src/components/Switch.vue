@@ -43,7 +43,7 @@ const switchStyle = computed(() => ({
   borderRadius: `${height / 2}px`,
   backgroundColor:
     (isControlled && open) || (!isControlled && ownOpen.value)
-      ? '#e4e4e4'
+      ? '#1a1c20'
       : '#1a1c20',
 }));
 
