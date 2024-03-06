@@ -1,13 +1,33 @@
 <template>
+  <Loading></Loading>
+  <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
+  <Mousemove :toggleEvent="toggleEffect"></Mousemove>
   <div>
-    <Loading></Loading>
-    <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
-    <Mousemove :toggleEvent="toggleEffect"></Mousemove>
+    <div class="boxDrawer" v-if="drawer">
+      <LineCombination></LineCombination>
+    </div>
+
     <MyMessage></MyMessage>
-    <router-view></router-view>
     <div
-      class="absolute top-10 right-10 w-4rem h-4rem flex justify-center items-center"
+      class="absolute top-10vh right-5vh w-4rem h-4rem flex justify-center items-center flex-col gap-10"
     >
+      <div>
+        <Switch
+          :width="76"
+          :height="34"
+          :openIcon="true"
+          :closeIcon="true"
+          style="margin: 0 60px"
+          @update:own-open="handleSwitchChange"
+        >
+          <template #openIcon>
+            <span :style="{ color: '#333', marginRight: '2px' }">ON</span>
+          </template>
+          <template #closeIcon>
+            <span :style="{ color: '#fff', marginLeft: '4px' }">OFF</span>
+          </template>
+        </Switch>
+      </div>
       <div
         class="iconfont toggle text-2rem text-#fff opacity-40"
         @click="toggleEffectClick"
@@ -16,6 +36,7 @@
       </div>
     </div>
   </div>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
@@ -26,7 +47,15 @@ import MyMessage from './components/MyMessage.vue';
 import Loading from './components/Loading.vue';
 import Mousemove from './components/Mousemove.vue';
 import { ToggleEvent } from './types/home';
+import LineCombination from './components/LineCombination.vue';
+import Switch from './components/Switch.vue';
 
+const drawer = ref<boolean>(false);
+const handleSwitchChange = (value: boolean) => {
+  drawer.value = !value;
+  console.log('drawer.value', drawer.value);
+};
+// toggle effect
 const toggleEffect = ref<ToggleEvent>('mouseMove');
 
 // loading complete event

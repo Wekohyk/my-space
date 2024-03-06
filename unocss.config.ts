@@ -142,5 +142,11 @@ export default defineConfig({
         'font-family': 'PacificoRegular',
       },
     ],
+    [
+      'font-STXingkai',
+      {
+        'font-family': 'STXingkai',
+      },
+    ],
   ],
 });
