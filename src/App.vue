@@ -8,7 +8,7 @@
   ></Total>
   <div>
     <!-- drawer -->
-    <div class="boxDrawer" v-if="drawer">
+    <div v-if="drawer">
       <LineCombination></LineCombination>
     </div>
 
@@ -16,7 +16,7 @@
     <MyMessage></MyMessage>
 
     <!-- button -->
-    <div class="fixed top-100 right-0 flex items-end flex-col gap-20">
+    <div class="fixed top-60 right-20 flex items-end flex-col gap-20">
       <div @mouseenter="mouseenter('1')" @mouseleave="mouseleave">
         <Switch
           class="toggle"
@@ -24,7 +24,6 @@
           :height="34"
           :openIcon="true"
           :closeIcon="true"
-          style="margin: 0 60px"
           @update:own-open="handleSwitchChange"
         >
           <template #openIcon>
