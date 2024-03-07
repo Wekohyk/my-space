@@ -1,10 +1,25 @@
 <template>
-  <div class="switch opacity-40" :style="switchStyle" @click="onSwitchClick">
-    <div class="switchBox" :style="switchBoxStyle" />
-    <div class="icon" :style="closeIconStyle" v-if="!!closeIcon">
+  <div
+    class="opacity-40 flex items-center cursor-pointer relative transition-all duration-400"
+    :style="switchStyle"
+    @click="onSwitchClick"
+  >
+    <div
+      class="absolute bg-#355dff overflow-hidden transition-all duration-400"
+      :style="switchBoxStyle"
+    />
+    <div
+      class="absolute transition-all duration-400"
+      :style="closeIconStyle"
+      v-if="!!closeIcon"
+    >
       <slot name="closeIcon"></slot>
     </div>
-    <div class="icon" :style="openIconStyle" v-if="!!openIcon">
+    <div
+      class="absolute transition-all duration-400"
+      :style="openIconStyle"
+      v-if="!!openIcon"
+    >
       <slot name="openIcon"></slot>
     </div>
   </div>
@@ -97,25 +112,4 @@ const onSwitchClick = () => {
 };
 </script>
 
-<style scoped lang="scss">
-.switch {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-
-  $transition: all 0.4s;
-
-  .switchBox {
-    position: absolute;
-    background-color: #355dff;
-    overflow: hidden;
-    transition: $transition;
-  }
-
-  .icon {
-    position: absolute;
-    transition: $transition;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

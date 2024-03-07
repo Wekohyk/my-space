@@ -1,26 +1,35 @@
 <template>
-  <div class="fixed top-0 right-0 bottom-0 left-0">
-    <div class="flex justify-center items-center h-100vh gap-20">
-      <!-- left box -->
-      <div class="flex flex-col justify-center items-center text-center">
-        <div class="flex gap-10px items-center">
-          <div>
-            <img class="w-5vh h-5vh rounded-50%" src="/images/avatar.webp" />
+  <div
+    class="fixed top-0 right-0 bottom-0 left-0 flex justify-center items-center"
+  >
+    <div class="flex justify-center items-center h-100vh gap-20 flex-col">
+      <!-- top box -->
+      <div class="flex justify-center items-center">
+        <!-- left box -->
+        <div class="flex flex-col justify-center items-center text-center">
+          <div class="flex gap-10px items-center">
+            <div>
+              <img class="w-5vh h-5vh rounded-50%" src="/images/avatar.webp" />
+            </div>
+            <div class="animation" :data-text="$t('wekoHome')">
+              {{ $t('wekoHome') }}
+            </div>
           </div>
-          <div class="animation" :data-text="$t('wekoHome')">
-            {{ $t('wekoHome') }}
+          <div
+            class="h-1 w-20rem bg-gradient-to-l from-#000 via-#fff to-#000 opacity-60 my-20px"
+          ></div>
+          <div class="font-STXingkai text-#fff text-1.5rem">
+            {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
           </div>
         </div>
-        <div
-          class="h-1 w-20rem bg-gradient-to-l from-#000 via-#fff to-#000 opacity-60 my-20px"
-        ></div>
-        <div class="font-STXingkai text-#fff text-1.5rem">
-          {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
+        <!-- right box -->
+        <div class="flex items-center">
+          <Weather></Weather>
         </div>
       </div>
-      <!-- right box -->
-      <div class="flex flex-col items-center">
-        <Weather></Weather>
+      <!-- bottom box -->
+      <div class="flex items-center">
+        <Menu></Menu>
       </div>
     </div>
   </div>
@@ -30,6 +39,7 @@
 import { ref, onMounted } from 'vue';
 import { getJinrishici } from '../utils/getJinrishici';
 import Weather from './Weather.vue';
+import Menu from './Menu.vue';
 
 import { isEn } from '../lang/index';
 const poetry = ref('');

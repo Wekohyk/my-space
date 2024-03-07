@@ -16,9 +16,7 @@
     <MyMessage></MyMessage>
 
     <!-- button -->
-    <div
-      class="absolute top-10vh right-5vh w-4rem h-4rem flex justify-center items-center flex-col gap-10"
-    >
+    <div class="fixed top-100 right-0 flex items-end flex-col gap-20">
       <div @mouseenter="mouseenter('1')" @mouseleave="mouseleave">
         <Switch
           class="toggle"
