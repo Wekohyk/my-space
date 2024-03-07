@@ -9,7 +9,7 @@
       </div>
       <div class="whiteBox">
         <div class="whiteBoxPoint" />
-        <p class="name">{{ $t('note') }}</p>
+        <p class="name" @click="skip(skipType)">{{ $t('note') }}</p>
         <p class="value">$656</p>
       </div>
       <div class="blackBox">
@@ -31,28 +31,27 @@
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox">
-        <div class="whiteBoxPoint" />
-        <p class="name">establishment</p>
-        <p class="value">2024</p>
-      </div>
-      <div class="blackBox">
-        <div class="blackBoxPoint" />
-      </div>
-      <div class="whiteBox">
-        <div class="whiteBoxPoint" />
-        <p class="name">Transaction Analyzed</p>
-        <p class="value">70Bn</p>
-      </div>
-      <div class="blackBox">
-        <div class="blackBoxPoint" />
-      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
+
+import { useRouter } from 'vue-router';
+
+type SkipType = 'note' | 'blog' | 'curriculum';
+
+const skipType = ref<SkipType>('note');
+
+const router = useRouter();
+const skip = (skipType: SkipType) => {
+  console.log(123);
+  if (skipType === 'note') return (skipType = 'note');
+  if (skipType === 'blog') return (skipType = 'blog');
+  if (skipType === 'curriculum') return (skipType = 'curriculum');
+  router.push(skipType);
+};
 
 const pointWidth = 8;
 const boxRadius = 8;

@@ -7,8 +7,9 @@
         class="flex gap-10 flex-col"
         v-for="(item, index) in urlList"
         :key="index"
+        @click="open(item.url)"
       >
-        <div class="flex justify-center items-center" @click="open(item.url)">
+        <div class="flex justify-center items-center">
           <img class="w-30 h-30" :src="item.src" />
         </div>
         <div class="text-#fff">
