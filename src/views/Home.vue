@@ -1,6 +1,6 @@
 <template>
   <Loading></Loading>
-  <BackgroundImg @loadComplete="loadComplete"></BackgroundImg>
+  <BackgroundImg></BackgroundImg>
   <Mousemove v-if="toggleEffect"></Mousemove>
   <Total
     :title="messageNum === '1' ? $t('message1') : $t('message2')"
@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import BackgroundImg from '../components/BackgroundImg.vue';
 import { helloInit } from '../utils/getTIme';
 import MyMessage from '../components/MyMessage.vue';
@@ -79,13 +79,13 @@ const mouseleave = () => {
 
 // toggle effect
 const toggleEffect = ref<boolean>(true);
-// loading complete event
-const loadComplete = () => {
-  nextTick(() => {
+
+onMounted(() => {
+  setTimeout(() => {
     // welcome message
     helloInit();
-  });
-};
+  }, 2000);
+});
 
 const toggleEffectClick = () => {
   toggleEffect.value = !toggleEffect.value;

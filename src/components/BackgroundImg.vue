@@ -5,7 +5,6 @@
       :src="imgUrl"
       alt=""
       @load="imgLoadComplete"
-      @animationend="imgAnimationEnd"
       @error.once="imgLoadError"
     />
   </div>
@@ -27,7 +26,6 @@ const local = isEn
 
 const store = homeStore();
 const imgUrl = ref('');
-const emit = defineEmits(['loadComplete']);
 
 const random = Math.floor(Math.random() * 12);
 
@@ -54,18 +52,12 @@ const imgLoadComplete = () => {
   );
 };
 
-// img animation complete
-const imgAnimationEnd = () => {
-  // load complete event
-  emit('loadComplete');
-};
-
 // img load error
 const imgLoadError = () => {
   ElMessage({
     message: local.wallpaperFailed,
   });
-  imgUrl.value = `/images/acquiesceBackground.webp`;
+  imgUrl.value = `/images/acquiesceBackground${random}.webp`;
 };
 
 onMounted(() => {
