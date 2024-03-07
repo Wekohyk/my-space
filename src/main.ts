@@ -17,9 +17,9 @@ import './assets/styles/index.scss';
 import 'uno.css';
 
 const app = createApp(App);
+app.use(router);
 app.use(pinia);
 app.use(i18n);
 app.use(createPinia().use(persist));
-app.use(router);
 app.use(ElementPlus);
 app.mount('#app');

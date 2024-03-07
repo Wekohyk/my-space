@@ -14,4 +14,7 @@ export default {
   day: '日',
   wind: '风',
   level: '级',
+  note: '学习笔记',
+  blog: '博客',
+  curriculum: '简历',
 };

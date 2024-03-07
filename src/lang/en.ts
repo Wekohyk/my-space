@@ -14,4 +14,7 @@ export default {
   day: 'Day',
   wind: '', // 'Wind'
   level: '', // 'Level'
+  note: 'Study Note',
+  blog: 'Blog',
+  curriculum: 'Curriculum Vitae',
 };

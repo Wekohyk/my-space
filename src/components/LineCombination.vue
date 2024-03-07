@@ -9,7 +9,7 @@
       </div>
       <div class="whiteBox">
         <div class="whiteBoxPoint" />
-        <p class="name">Price</p>
+        <p class="name">{{ $t('note') }}</p>
         <p class="value">$656</p>
       </div>
       <div class="blackBox">
@@ -17,7 +17,7 @@
       </div>
       <div class="whiteBox">
         <div class="whiteBoxPoint" />
-        <p class="name">Quantity</p>
+        <p class="name">{{ $t('blog') }}</p>
         <p class="value">84351</p>
       </div>
       <div class="blackBox">
@@ -25,7 +25,7 @@
       </div>
       <div class="whiteBox">
         <div class="whiteBoxPoint" />
-        <p class="name">Number of partners</p>
+        <p class="name">{{ $t('curriculum') }}</p>
         <p class="value">64</p>
       </div>
       <div class="blackBox">
@@ -33,8 +33,8 @@
       </div>
       <div class="whiteBox">
         <div class="whiteBoxPoint" />
-        <p class="name">Date of establishment</p>
-        <p class="value">2008-10-01</p>
+        <p class="name">establishment</p>
+        <p class="value">2024</p>
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
@@ -62,7 +62,7 @@ let movePointV = 4;
 
 const containerRef = ref<HTMLDivElement>();
 
-// 移动光点
+// Move the light point
 const movePoint = () => {
   if (containerRef.value) {
     const nativeNode = containerRef.value as HTMLDivElement;
@@ -279,7 +279,7 @@ onUnmounted(() => {
     }
 
     .name {
-      font-size: 15px;
+      font-size: 1rem;
       margin-bottom: 14px;
       text-align: center;
       transform: translateY(100px);
@@ -291,7 +291,7 @@ onUnmounted(() => {
     }
 
     .value {
-      font-size: 32px;
+      font-size: 1rem;
       font-weight: 500;
       transform: translateY($boxHeight);
       animation: entrance_totop 1.6s 1 forwards 0.3s alternate;
