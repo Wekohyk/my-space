@@ -2,12 +2,12 @@
   <div
     class="flex justify-center items-center text-#fff bg-#000/40 w-300 h-150 rounded-15"
   >
-    <div class="flex items-center justify-center gap-20 flex-col">
+    <div class="flex items-center justify-center gap-12 flex-col">
       <div class="flex justify-center gap-10">
         <div>{{ nowTimeYear }}</div>
         <div>{{ nowTimeWeek }}</div>
       </div>
-      <div class="text-2rem font-500 tracking-5 font-Krungthep">
+      <div class="text-2.5rem font-500 tracking-5 font-Krungthep">
         {{ nowTimeHour }}
       </div>
       <div class="flex justify-center gap-10">

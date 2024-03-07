@@ -5,7 +5,6 @@
     <div class="flex justify-center items-center h-100vh gap-20 flex-col">
       <!-- top box -->
       <div class="flex justify-center items-center">
-        <!-- left box -->
         <div class="flex flex-col justify-center items-center text-center">
           <div class="flex gap-10px items-center">
             <div>
@@ -22,13 +21,10 @@
             {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
           </div>
         </div>
-        <!-- right box -->
-        <div class="flex items-center">
-          <Weather></Weather>
-        </div>
       </div>
       <!-- bottom box -->
-      <div class="flex items-center">
+      <div class="flex items-center gap-30">
+        <Weather></Weather>
         <Menu></Menu>
       </div>
     </div>
