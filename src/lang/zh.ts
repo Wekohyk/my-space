@@ -17,4 +17,6 @@ export default {
   note: '学习笔记',
   blog: '博客',
   curriculum: '简历',
+  googleEmail: '谷歌邮箱',
+  weiboSearch: '微博热搜',
 };

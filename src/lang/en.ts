@@ -17,4 +17,6 @@ export default {
   note: 'Study Note',
   blog: 'Blog',
   curriculum: 'Curriculum Vitae',
+  googleEmail: 'Google Email',
+  weiboSearch: 'Hot Search',
 };
