@@ -9,4 +9,9 @@ export default {
   week4: 'Thursday',
   week5: 'Friday',
   week6: 'Saturday',
+  year: 'Year',
+  month: 'Mon',
+  day: 'Day',
+  wind: '', // 'Wind'
+  level: '', // 'Level'
 };

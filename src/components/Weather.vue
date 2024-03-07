@@ -1,19 +1,23 @@
 <template>
   <div
-    class="flex justify-center items-center text-#fff bg-#000/40 w-200 h-100 rounded-15"
+    class="flex justify-center items-center text-#fff bg-#000/40 w-300 h-150 rounded-15"
   >
-    <div class="flex items-center justify-center gap-1vw flex-col">
-      <div class="flex justify-center gap-1vw">
+    <div class="flex items-center justify-center gap-20 flex-col">
+      <div class="flex justify-center gap-10">
         <div>{{ nowTimeYear }}</div>
         <div>{{ nowTimeWeek }}</div>
       </div>
-      <div>{{ nowTimeHour }}</div>
-      <div class="flex justify-center gap-1vw">
+      <div class="text-2rem font-500 tracking-5 font-Krungthep">
+        {{ nowTimeHour }}
+      </div>
+      <div class="flex justify-center gap-10">
         <div>
           {{ weatherData.lives[0].province + weatherData.lives[0].city }}
         </div>
         <div>{{ weatherData.lives[0].weather }}</div>
         <div>{{ weatherData.lives[0].temperature + '℃' }}</div>
+        <div>{{ weatherData.lives[0].winddirection + $t('wind') }}</div>
+        <div>{{ weatherData.lives[0].windpower + ' ' + $t('level') }}</div>
       </div>
     </div>
   </div>
@@ -49,7 +53,7 @@ const getTime = () => {
     $t('week5'),
     $t('week6'),
   ][date.getDay()];
-  nowTimeYear.value = `${year}-${month}-${day}`;
+  nowTimeYear.value = `${year} ${$t('year')} ${month} ${$t('month')} ${day} ${$t('day')}`;
   nowTimeHour.value = `${hour}:${minute}:${second}`;
   nowTimeWeek.value = `${week}`;
 };

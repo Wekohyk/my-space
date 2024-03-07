@@ -148,5 +148,11 @@ export default defineConfig({
         'font-family': 'STXingkai',
       },
     ],
+    [
+      'font-Krungthep',
+      {
+        'font-family': 'Krungthep',
+      },
+    ],
   ],
 });

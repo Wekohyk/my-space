@@ -9,4 +9,9 @@ export default {
   week4: '星期四',
   week5: '星期五',
   week6: '星期六',
+  year: '年',
+  month: '月',
+  day: '日',
+  wind: '风',
+  level: '级',
 };
