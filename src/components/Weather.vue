@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, onUnmounted } from 'vue';
 import { getAdcode, getWeather } from '../api/weather';
 import { City, Weather } from '../types/weather';
 import { $t } from '../lang/index';
@@ -57,6 +57,10 @@ const getTime = () => {
   nowTimeHour.value = `${hour}:${minute}:${second}`;
   nowTimeWeek.value = `${week}`;
 };
+
+const upTime = setInterval(() => {
+  getTime();
+}, 1000);
 
 // city data
 const cityData = ref<City>({
@@ -110,6 +114,10 @@ const getWeatherData = async () => {
 onMounted(() => {
   getWeatherData();
   getTime();
+});
+
+onUnmounted(() => {
+  clearInterval(upTime);
 });
 </script>
 
