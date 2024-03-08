@@ -1,21 +1,21 @@
 <template>
   <div
     style="width: 100%"
-    class="flex justify-center items-center absolute bottom-0"
+    class="flex justify-center items-center absolute bottom-0 z-200"
   >
     <div class="container" ref="containerRef">
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox">
+      <div class="whiteBox" @click="skip('/note')">
         <div class="whiteBoxPoint" />
-        <p class="name" @click="skip(skipType)">{{ $t('note') }}</p>
+        <p class="name">{{ $t('note') }}</p>
         <p class="value">$656</p>
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox">
+      <div class="whiteBox" @click="skip('/blog')">
         <div class="whiteBoxPoint" />
         <p class="name">{{ $t('blog') }}</p>
         <p class="value">84351</p>
@@ -23,7 +23,7 @@
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox">
+      <div class="whiteBox" @click="skip('/curriculum')">
         <div class="whiteBoxPoint" />
         <p class="name">{{ $t('curriculum') }}</p>
         <p class="value">64</p>
@@ -40,17 +40,11 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 import { useRouter } from 'vue-router';
 
-type SkipType = 'note' | 'blog' | 'curriculum';
-
-const skipType = ref<SkipType>('note');
+type SkipType = '/note' | '/blog' | '/curriculum';
 
 const router = useRouter();
-const skip = (skipType: SkipType) => {
-  console.log(123);
-  if (skipType === 'note') return (skipType = 'note');
-  if (skipType === 'blog') return (skipType = 'blog');
-  if (skipType === 'curriculum') return (skipType = 'curriculum');
-  router.push(skipType);
+const skip = (goSkip: SkipType) => {
+  router.push(goSkip);
 };
 
 const pointWidth = 8;
