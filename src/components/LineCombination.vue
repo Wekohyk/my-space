@@ -9,24 +9,33 @@
       </div>
       <div class="whiteBox" @click="skip('/note')">
         <div class="whiteBoxPoint" />
-        <p class="name">{{ $t('note') }}</p>
-        <p class="value">$656</p>
+        <div class="name text-1rem mb-14 text-center min-h-36 h-36">
+          {{ $t('note') }}
+          <img src="/svg/skip.svg" class="w-15" />
+        </div>
+        <div class="value text-1rem font-500">$656</div>
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
       <div class="whiteBox" @click="skip('/blog')">
         <div class="whiteBoxPoint" />
-        <p class="name">{{ $t('blog') }}</p>
-        <p class="value">84351</p>
+        <div class="name text-1rem mb-14 text-center min-h-36 h-36">
+          {{ $t('blog') }}
+          <img src="/svg/skip.svg" class="w-15" />
+        </div>
+        <div class="value text-1rem font-500">84351</div>
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
       <div class="whiteBox" @click="skip('/curriculum')">
         <div class="whiteBoxPoint" />
-        <p class="name">{{ $t('curriculum') }}</p>
-        <p class="value">64</p>
+        <div class="name text-1rem mb-14 text-center min-h-36 h-36">
+          {{ $t('curriculum') }}
+          <img src="/svg/skip.svg" class="w-15" />
+        </div>
+        <div class="value text-1rem font-500">64</div>
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
@@ -272,20 +281,11 @@ onUnmounted(() => {
     }
 
     .name {
-      font-size: 1rem;
-      margin-bottom: 14px;
-      text-align: center;
       transform: translateY(100px);
-      min-height: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
       animation: entrance_totop 1.6s 1 forwards 0s alternate;
     }
 
     .value {
-      font-size: 1rem;
-      font-weight: 500;
       transform: translateY($boxHeight);
       animation: entrance_totop 1.6s 1 forwards 0.3s alternate;
     }
