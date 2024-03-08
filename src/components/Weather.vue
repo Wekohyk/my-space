@@ -102,7 +102,6 @@ const getWeatherData = async () => {
     // get weather data
     const result = await getWeather(mainKey, cityData.value.adcode);
     weatherData.value = result;
-    console.log('weatherData.value', weatherData.value);
   } catch (error) {
     console.error('天气信息获取失败:' + error);
   }

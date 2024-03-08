@@ -45,7 +45,6 @@ onMounted(() => {
   mask.value = true;
   getJinrishici()
     .then(result => {
-      console.log(result);
       poetry.value = result.data.content;
       isPoetry.value = true;
     })

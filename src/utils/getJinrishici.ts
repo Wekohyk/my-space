@@ -13,7 +13,6 @@ export const getJinrishici = (): Promise<PoetryOfToday> => {
   return new Promise((resolve, reject) => {
     jinrishici.load(
       (result: PoetryOfToday) => {
-        console.log('getJinrishici / 获取今日诗词', result);
         resolve(result);
       },
       (errData: PoetryOfTodayError) => {

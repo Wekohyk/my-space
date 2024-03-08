@@ -62,7 +62,6 @@ const visible = ref<boolean>(false);
 const messageNum = ref<string>('1');
 const handleSwitchChange = (value: boolean) => {
   drawer.value = !value;
-  console.log('drawer.value', drawer.value);
 };
 const mouseenter = (id: string) => {
   if (id === '1') {
