@@ -19,7 +19,7 @@
     <div class="fixed top-60 right-20 flex items-end flex-col gap-20">
       <div @mouseenter="mouseenter('1')" @mouseleave="mouseleave">
         <Switch
-          class="toggle"
+          class="toggle hover:scale-120 transition-all duration-300"
           :width="76"
           :height="34"
           :openIcon="true"
@@ -35,7 +35,7 @@
         </Switch>
       </div>
       <div
-        class="iconfont toggle text-2rem text-#fff opacity-40"
+        class="iconfont toggle text-2rem text-#fff opacity-40 cursor-pointer hover:scale-120 transition-all duration-300"
         @click="toggleEffectClick"
         @mouseenter="mouseenter('2')"
         @mouseleave="mouseleave()"

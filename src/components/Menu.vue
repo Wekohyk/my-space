@@ -4,7 +4,7 @@
   >
     <div class="flex justify-between items-center w-full h-full">
       <div
-        class="flex gap-10 flex-col"
+        class="flex gap-10 flex-col cursor-pointer hover:scale-120 transition-all duration-300"
         v-for="(item, index) in urlList"
         :key="index"
         @click="open(item.url)"
