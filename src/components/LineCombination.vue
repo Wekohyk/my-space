@@ -7,7 +7,7 @@
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox" @click="skip('/note')">
+      <div class="whiteBox" @click="skip(url.noteUrl)">
         <div class="whiteBoxPoint" />
         <div class="name text-1rem mb-14 text-center min-h-36 h-36">
           {{ $t('note') }}
@@ -18,7 +18,7 @@
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox" @click="skip('/blog')">
+      <div class="whiteBox" @click="skip(url.noteUrl)">
         <div class="whiteBoxPoint" />
         <div class="name text-1rem mb-14 text-center min-h-36 h-36">
           {{ $t('blog') }}
@@ -29,7 +29,7 @@
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox" @click="skip('/curriculum')">
+      <div class="whiteBox" @click="skip(url.noteUrl)">
         <div class="whiteBoxPoint" />
         <div class="name text-1rem mb-14 text-center min-h-36 h-36">
           {{ $t('curriculum') }}
@@ -47,13 +47,12 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 
-import { useRouter } from 'vue-router';
+const url = {
+  noteUrl: 'note.wekooo.com',
+};
 
-type SkipType = '/note' | '/blog' | '/curriculum';
-
-const router = useRouter();
-const skip = (goSkip: SkipType) => {
-  router.push(goSkip);
+const skip = (url: string) => {
+  window.location.href = `https://${url}`;
 };
 
 const pointWidth = 8;
