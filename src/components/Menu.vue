@@ -35,9 +35,9 @@ const urlList = [
     src: '/svg/email.svg',
   },
   {
-    name: `${$t('weiboSearch')}`,
-    url: 'https://s.weibo.com/top/summary',
-    src: '/svg/hot.svg',
+    name: `${$t('blog')}`,
+    url: 'https://note.wekooo.com',
+    src: '/svg/blog.svg',
   },
 ];
 // open url

@@ -15,8 +15,8 @@ export default {
   wind: '风',
   level: '级',
   note: '学习笔记',
-  blog: '博客',
+  article: '文章',
   curriculum: '简历',
   googleEmail: '谷歌邮箱',
-  weiboSearch: '微博热搜',
+  blog: '博客',
 };

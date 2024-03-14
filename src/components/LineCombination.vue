@@ -13,29 +13,29 @@
           {{ $t('note') }}
           <img src="/svg/skip.svg" class="w-15" />
         </div>
-        <div class="value text-1rem font-500">$656</div>
+        <!-- <div class="value text-1rem font-500">$656</div> -->
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox" @click="skip(url.noteUrl)">
+      <div class="whiteBox" @click="skip(url.articleUrl)">
         <div class="whiteBoxPoint" />
         <div class="name text-1rem mb-14 text-center min-h-36 h-36">
-          {{ $t('blog') }}
+          {{ $t('article') }}
           <img src="/svg/skip.svg" class="w-15" />
         </div>
-        <div class="value text-1rem font-500">84351</div>
+        <!-- <div class="value text-1rem font-500">84351</div> -->
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
       </div>
-      <div class="whiteBox" @click="skip(url.noteUrl)">
+      <div class="whiteBox" @click="skip(url.curriculumVitaeUrl)">
         <div class="whiteBoxPoint" />
         <div class="name text-1rem mb-14 text-center min-h-36 h-36">
           {{ $t('curriculum') }}
           <img src="/svg/skip.svg" class="w-15" />
         </div>
-        <div class="value text-1rem font-500">64</div>
+        <!-- <div class="value text-1rem font-500">64</div> -->
       </div>
       <div class="blackBox">
         <div class="blackBoxPoint" />
@@ -48,7 +48,9 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const url = {
-  noteUrl: 'note.wekooo.com',
+  noteUrl: 'note.wekooo.com/index.php/category/study-notes/',
+  articleUrl: 'note.wekooo.com/index.php/category/article/',
+  curriculumVitaeUrl: 'note.wekooo.com/index.php/category/curriculum-vitae/',
 };
 
 const skip = (url: string) => {

@@ -15,8 +15,8 @@ export default {
   wind: '', // 'Wind'
   level: '', // 'Level'
   note: 'Study Note',
-  blog: 'Blog',
+  article: 'article',
   curriculum: 'Curriculum Vitae',
   googleEmail: 'Google Email',
-  weiboSearch: 'Hot Search',
+  blog: 'Blog',
 };
