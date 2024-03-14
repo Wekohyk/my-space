@@ -6,6 +6,9 @@
 
 [Wekooo home]('https://wekooo.com')
 
-### 使用技术栈
+node版本 v18.18.0
 
-- 
+## 天气
+
+使用 `高德开放平台` 相关 API (获取天气以及地区)
+
