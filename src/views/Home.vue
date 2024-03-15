@@ -100,4 +100,28 @@ const toggleEffectClick = () => {
     fill: unset;
   }
 }
+
+// Responsive layout
+
+/* ipad pro */
+@media screen and (max-width: 1024px) {
+}
+/* ipad */
+@media screen and (max-width: 768px) {
+  .toggle {
+    display: none;
+  }
+}
+/* iphone6 7 8 plus */
+@media screen and (max-width: 414px) {
+}
+/* iphoneX */
+@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+}
+/* iphone6 7 8 */
+@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {
+}
+/* iphone5 */
+@media screen and (max-width: 320px) {
+}
 </style>

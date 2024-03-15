@@ -23,7 +23,7 @@
         </div>
       </div>
       <!-- bottom box -->
-      <div class="flex items-center gap-30">
+      <div class="bootstrap flex items-center gap-30">
         <Weather></Weather>
         <Menu></Menu>
       </div>
@@ -85,6 +85,12 @@ onMounted(() => {
     90% {
       width: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bootstrap {
+    flex-direction: column;
   }
 }
 </style>
