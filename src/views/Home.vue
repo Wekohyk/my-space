@@ -7,33 +7,11 @@
     :visible="visible"
   ></Total>
   <div>
-    <!-- drawer -->
-    <div v-if="drawer">
-      <LineCombination></LineCombination>
-    </div>
-
     <!-- mid -->
     <MyMessage></MyMessage>
 
     <!-- button -->
-    <div class="fixed top-60 right-20 flex items-end flex-col gap-20">
-      <div @mouseenter="mouseenter('1')" @mouseleave="mouseleave">
-        <Switch
-          class="toggle hover:scale-120 transition-all duration-300"
-          :width="76"
-          :height="34"
-          :openIcon="true"
-          :closeIcon="true"
-          @update:own-open="handleSwitchChange"
-        >
-          <template #openIcon>
-            <span :style="{ color: '#fff', marginRight: '2px' }">ON</span>
-          </template>
-          <template #closeIcon>
-            <span :style="{ color: '#fff', marginLeft: '4px' }">OFF</span>
-          </template>
-        </Switch>
-      </div>
+    <div class="isShow fixed top-60 right-20 flex items-end flex-col gap-20">
       <div
         class="iconfont toggle text-2rem text-#fff opacity-40 cursor-pointer hover:scale-120 transition-all duration-300"
         @click="toggleEffectClick"
@@ -53,16 +31,10 @@ import { helloInit } from '../utils/getTIme';
 import MyMessage from '../components/MyMessage.vue';
 import Loading from '../components/Loading.vue';
 import Mousemove from '../components/Mousemove.vue';
-import LineCombination from '../components/LineCombination.vue';
-import Switch from '../components/Switch.vue';
 import Total from '../components/Total.vue';
 
-const drawer = ref<boolean>(false);
 const visible = ref<boolean>(false);
 const messageNum = ref<string>('1');
-const handleSwitchChange = (value: boolean) => {
-  drawer.value = !value;
-};
 const mouseenter = (id: string) => {
   if (id === '1') {
     messageNum.value = '1';
@@ -108,7 +80,7 @@ const toggleEffectClick = () => {
 }
 /* ipad */
 @media screen and (max-width: 768px) {
-  .toggle {
+  .isShow {
     display: none;
   }
 }
