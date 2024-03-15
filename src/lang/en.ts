@@ -17,6 +17,6 @@ export default {
   note: 'Study Note',
   article: 'article',
   curriculum: 'Curriculum Vitae',
-  googleEmail: 'Google Email',
+  googleEmail: 'Email',
   blog: 'Blog',
 };

@@ -15,7 +15,7 @@
             </div>
           </div>
           <div
-            class="h-1 w-20rem bg-gradient-to-l from-#000 via-#fff to-#000 opacity-60 my-20px"
+            class="h-1 w-20rem bg-gradient-to-l from-#3e3e3e via-#fff to-#3e3e3e opacity-60 my-20px"
           ></div>
           <div class="font-STXingkai text-#fff text-1.5rem">
             {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
