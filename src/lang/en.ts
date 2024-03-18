@@ -1,6 +1,6 @@
 export default {
   wekoHome: 'Wekooo Home',
-  message1: 'Whether to display the menu bar',
+  message1: 'Whether to jump to the start page',
   message2: 'Whether to use mouse move effect',
   week0: 'Sunday',
   week1: 'Monday',

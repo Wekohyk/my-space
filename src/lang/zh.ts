@@ -1,6 +1,6 @@
 export default {
   wekoHome: 'Wekooo Home',
-  message1: '是否显示菜单栏',
+  message1: '是否跳转起始页',
   message2: '是否使用鼠标移动特效',
   week0: '星期日',
   week1: '星期一',

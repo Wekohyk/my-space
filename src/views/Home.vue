@@ -3,7 +3,7 @@
   <BackgroundImg></BackgroundImg>
   <Mousemove v-if="toggleEffect"></Mousemove>
   <Total
-    :title="messageNum === '1' ? $t('message1') : $t('message2')"
+    :title="messageNum === '1' ? $t('message2') : $t('message1')"
     :visible="visible"
   ></Total>
   <div>
@@ -15,10 +15,17 @@
       <div
         class="iconfont toggle text-2rem text-#fff opacity-40 cursor-pointer hover:scale-120 transition-all duration-300"
         @click="toggleEffectClick"
-        @mouseenter="mouseenter('2')"
+        @mouseenter="mouseenter('1')"
         @mouseleave="mouseleave()"
       >
         &#xe6bd;
+      </div>
+      <div
+        class="iconfont toggle text-2rem text-#fff opacity-40 cursor-pointer hover:scale-120 transition-all duration-300"
+        @mouseenter="mouseenter('2')"
+        @mouseleave="mouseleave()"
+      >
+        &#xe774;
       </div>
     </div>
   </div>
