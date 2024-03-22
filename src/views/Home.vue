@@ -22,6 +22,7 @@
       </div>
       <div
         class="iconfont toggle text-2rem text-#fff opacity-40 cursor-pointer hover:scale-120 transition-all duration-300"
+        @click="jumpHomePage"
         @mouseenter="mouseenter('2')"
         @mouseleave="mouseleave()"
       >
@@ -67,6 +68,11 @@ onMounted(() => {
 
 const toggleEffectClick = () => {
   toggleEffect.value = !toggleEffect.value;
+};
+
+// jump to homepage
+const jumpHomePage = () => {
+  window.open('https://page.wekooo.com', '_self');
 };
 </script>
 
