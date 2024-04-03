@@ -11,9 +11,9 @@
     <MyMessage></MyMessage>
 
     <!-- button -->
-    <div class="isShow fixed top-60 right-20 flex items-end flex-col gap-20">
+    <div class="fixed top-60 right-20 flex items-end flex-col gap-20">
       <div
-        class="iconfont toggle text-2rem text-#fff opacity-40 cursor-pointer hover:scale-120 transition-all duration-300"
+        class="iconfont toggle isShow text-2rem text-#fff opacity-40 cursor-pointer hover:scale-120 transition-all duration-300"
         @click="toggleEffectClick"
         @mouseenter="mouseenter('1')"
         @mouseleave="mouseleave()"
