@@ -70,6 +70,8 @@ onMounted(() => {
     white-space: nowrap;
     border-right: 4px solid #fff;
     animation: move 8s linear infinite;
+    // The filter attribute in Safari on IOS devices does not display as expected
+    // Substitute effect reference: box-shadow: 0 0 20px #fff, 0 0 50px #fff;
     filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
     pointer-events: none;
   }
