@@ -19,4 +19,5 @@ export default {
   curriculum: '简历',
   googleEmail: '邮箱',
   blog: '博客',
+  jsComponents: 'JS组件库',
 };

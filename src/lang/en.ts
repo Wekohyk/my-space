@@ -19,4 +19,5 @@ export default {
   curriculum: 'Curriculum Vitae',
   googleEmail: 'Email',
   blog: 'Blog',
+  jsComponents: 'JS Components',
 };

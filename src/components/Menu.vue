@@ -78,6 +78,11 @@ const urlLists = [
     url: 'https://note.wekooo.com/index.php/category/curriculum-vitae/',
     src: '/svg/curriculum.svg',
   },
+  {
+    name: `${$t('jsComponents')}`,
+    url: 'https://jscomponents.wekooo.com',
+    src: '/svg/jsComponents.svg',
+  },
 ];
 
 const urlList = computed(() => {
