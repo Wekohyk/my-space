@@ -1,7 +1,7 @@
 <template>
-  <div class="absolute top-0 left-0 w-100% h-100% duration-250 -z-1">
+  <div class="fixed top-0 left-0 w-100% h-100% duration-250 -z-1">
     <img
-      class="background absolute top-0 left-0 w-full h-full object-cover backface-hidden"
+      class="background fixed top-0 left-0 w-full h-full object-cover backface-hidden"
       :src="imgUrl"
       alt=""
       @load="imgLoadComplete"

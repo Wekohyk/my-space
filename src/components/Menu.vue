@@ -63,21 +63,21 @@ const urlLists = [
     url: 'https://note.wekooo.com',
     src: '/svg/blog.svg',
   },
-  {
-    name: `${$t('note')}`,
-    url: 'https://note.wekooo.com/index.php/category/study-notes/',
-    src: '/svg/note.svg',
-  },
-  {
-    name: `${$t('article')}`,
-    url: 'https://note.wekooo.com/index.php/category/article/',
-    src: '/svg/article.svg',
-  },
-  {
-    name: `${$t('curriculum')}`,
-    url: 'https://note.wekooo.com/index.php/category/curriculum-vitae/',
-    src: '/svg/curriculum.svg',
-  },
+  // {
+  //   name: `${$t('note')}`,
+  //   url: 'https://note.wekooo.com/index.php/category/study-notes/',
+  //   src: '/svg/note.svg',
+  // },
+  // {
+  //   name: `${$t('article')}`,
+  //   url: 'https://note.wekooo.com/index.php/category/article/',
+  //   src: '/svg/article.svg',
+  // },
+  // {
+  //   name: `${$t('curriculum')}`,
+  //   url: 'https://note.wekooo.com/index.php/category/curriculum-vitae/',
+  //   src: '/svg/curriculum.svg',
+  // },
   {
     name: `${$t('jsComponents')}`,
     url: 'https://jscomponents.wekooo.com',
