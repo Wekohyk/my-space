@@ -20,4 +20,5 @@ export default {
   googleEmail: '邮箱',
   blog: '博客',
   jsComponents: 'JS组件库',
+  startingPage: '起始页',
 };

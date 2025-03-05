@@ -20,4 +20,5 @@ export default {
   googleEmail: 'Email',
   blog: 'Blog',
   jsComponents: 'JS Components',
+  startingPage: 'Starting Page',
 };

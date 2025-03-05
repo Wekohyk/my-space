@@ -50,7 +50,7 @@ import 'swiper/css';
 const urlLists = [
   {
     name: 'Github',
-    url: 'https://github.com/',
+    url: 'https://github.com/Wekohyk',
     src: '/svg/github.svg',
   },
   {
@@ -59,10 +59,15 @@ const urlLists = [
     src: '/svg/email.svg',
   },
   {
-    name: `${$t('blog')}`,
-    url: 'https://note.wekooo.com',
-    src: '/svg/blog.svg',
+    name: `${$t('startingPage')}`,
+    url: 'https://page.wekooo.com',
+    src: '/svg/startingPage.svg',
   },
+  // {
+  //   name: `${$t('blog')}`,
+  //   url: 'https://note.wekooo.com',
+  //   src: '/svg/blog.svg',
+  // },
   // {
   //   name: `${$t('note')}`,
   //   url: 'https://note.wekooo.com/index.php/category/study-notes/',
