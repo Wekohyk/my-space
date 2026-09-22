@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="fixed top-0 right-0 bottom-0 left-0 flex justify-center items-center"
-  >
+  <div class="fixed top-0 right-0 bottom-0 left-0 flex justify-center items-center">
     <div class="flex justify-center items-center h-100vh gap-20 flex-col">
       <!-- top box -->
       <div class="flex justify-center items-center">
@@ -14,9 +12,7 @@
               {{ $t('wekoHome') }}
             </div>
           </div>
-          <div
-            class="h-1 w-20rem bg-gradient-to-l from-#3e3e3e via-#fff to-#3e3e3e opacity-60 my-20px"
-          ></div>
+          <div class="h-1 w-20rem bg-gradient-to-l from-#3e3e3e via-#fff to-#3e3e3e opacity-60 my-20px"></div>
           <div class="font-STXingkai text-#fff text-1.5rem">
             {{ !isEn && isPoetry ? poetry : 'Hello World!' }}
           </div>

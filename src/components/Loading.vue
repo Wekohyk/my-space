@@ -1,17 +1,10 @@
 <template>
-  <div
-    class="fixed top-0 left-0 w-full h-full z-999999 overflow-hidden"
-    :class="{ loaded: store.imgLoadStatus }"
-  >
-    <div
-      class="loader w-full h-full absolute top-0 left-0 flex flex-col items-center justify-center"
-    >
+  <div class="fixed top-0 left-0 w-full h-full z-999999 overflow-hidden" :class="{ loaded: store.imgLoadStatus }">
+    <div class="loader w-full h-full absolute top-0 left-0 flex flex-col items-center justify-center">
       <!-- <div
         class="loader-circle w-150 h-150 rounded-50% border-3 border-solid border-[var(--text)] z-2"
       ></div> -->
-      <div
-        class="loader-circle w-100% h-360px flex justify-center items-center z-2 -translate-y-60"
-      >
+      <div class="loader-circle w-100% h-360px flex justify-center items-center z-2 -translate-y-60">
         <div class="content w-200 h-100 -mt-100 relative cursor-pointer">
           <div class="item1"></div>
           <div class="item2"></div>
@@ -22,26 +15,21 @@
           <div class="item7"></div>
         </div>
       </div>
-      <div
-        class="loader-text flex flex-col items-center text-[var(--text)] z-2 text-24 -translate-y-100"
-      >
+      <div class="loader-text flex flex-col items-center text-[var(--text)] z-2 text-24 -translate-y-100">
         <span>{{ siteName }}</span>
         <span class="mt-6 text-18 opacity-60">{{ local.loading }}...</span>
       </div>
     </div>
-    <div
-      class="loader-section section-left fixed top-0 left-0 w-51% h-full bg-#333 z-1"
-    ></div>
-    <div
-      class="loader-section section-right fixed top-0 right-0 w-51% h-full bg-#333 z-1"
-    ></div>
+    <div class="loader-section section-left fixed top-0 left-0 w-51% h-full bg-#333 z-1"></div>
+    <div class="loader-section section-right fixed top-0 right-0 w-51% h-full bg-#333 z-1"></div>
   </div>
 </template>
 <script setup lang="ts">
 import { homeStore } from '../stores/index';
 import { isEn } from '../lang/index';
-const local = isEn
-  ? {
+const local =
+  isEn ?
+    {
       loading: 'Loading',
     }
   : {

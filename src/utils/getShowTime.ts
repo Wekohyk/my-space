@@ -1,7 +1,8 @@
 import { isEn } from '../lang';
 
-const local = isEn
-  ? {
+const local =
+  isEn ?
+    {
       week0: 'Sunday',
       week1: 'Monday',
       week2: 'Tuesday',
@@ -24,15 +25,7 @@ const local = isEn
  * Get Show Time
  * format ---> yyyy-MM-dd hh:mm:ss 星期X
  */
-const nowWeek = [
-  local.week0,
-  local.week1,
-  local.week2,
-  local.week3,
-  local.week4,
-  local.week5,
-  local.week6,
-];
+const nowWeek = [local.week0, local.week1, local.week2, local.week3, local.week4, local.week5, local.week6];
 export const showTime = () => {
   const nowTime = new Date();
   const year = nowTime.getFullYear();

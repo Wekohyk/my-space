@@ -2,10 +2,7 @@
   <Loading></Loading>
   <BackgroundImg></BackgroundImg>
   <Mousemove v-if="toggleEffect"></Mousemove>
-  <Total
-    :title="messageNum === '1' ? $t('message2') : $t('message1')"
-    :visible="visible"
-  ></Total>
+  <Total :title="messageNum === '1' ? $t('message2') : $t('message1')" :visible="visible"></Total>
   <div>
     <!-- mid -->
     <MyMessage></MyMessage>

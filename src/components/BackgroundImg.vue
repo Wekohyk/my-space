@@ -15,13 +15,13 @@ import { homeStore } from '../stores/index';
 import { ElMessage } from 'element-plus';
 import { isEn } from '../lang/index';
 
-const local = isEn
-  ? {
+const local =
+  isEn ?
+    {
       wallpaperFailed: '壁纸加载失败，已临时切换回默认',
     }
   : {
-      wallpaperFailed:
-        'Wallpaper loading failed, temporarily switched back to default',
+      wallpaperFailed: 'Wallpaper loading failed, temporarily switched back to default',
     };
 
 const store = homeStore();

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex justify-center items-center text-#fff bg-#000/40 w-300 h-150 rounded-15"
-  >
+  <div class="flex justify-center items-center text-#fff bg-#000/40 w-300 h-150 rounded-15">
     <div class="flex items-center justify-center gap-12 flex-col">
       <div class="flex justify-center gap-10">
         <div>{{ nowTimeYear }}</div>
@@ -11,9 +9,7 @@
         {{ nowTimeHour }}
       </div>
       <div class="flex justify-center gap-10">
-        <div>
-          {{ weatherData.lives[0].province + weatherData.lives[0].city }}
-        </div>
+        <div>{{ weatherData.lives[0].province + weatherData.lives[0].city }}</div>
         <div>{{ weatherData.lives[0].weather }}</div>
         <div>{{ weatherData.lives[0].temperature + '℃' }}</div>
         <div>{{ weatherData.lives[0].winddirection + $t('wind') }}</div>
@@ -44,15 +40,9 @@ const getTime = () => {
   const hour = date.getHours().toString().padStart(2, '0');
   const minute = date.getMinutes().toString().padStart(2, '0');
   const second = date.getSeconds().toString().padStart(2, '0');
-  const week = [
-    $t('week0'),
-    $t('week1'),
-    $t('week2'),
-    $t('week3'),
-    $t('week4'),
-    $t('week5'),
-    $t('week6'),
-  ][date.getDay()];
+  const week = [$t('week0'), $t('week1'), $t('week2'), $t('week3'), $t('week4'), $t('week5'), $t('week6')][
+    date.getDay()
+  ];
   nowTimeYear.value = `${year} ${$t('year')} ${month} ${$t('month')} ${day} ${$t('day')}`;
   nowTimeHour.value = `${hour}:${minute}:${second}`;
   nowTimeWeek.value = `${week}`;

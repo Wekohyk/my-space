@@ -15,11 +15,7 @@ const normalizeSize = (size: string) => {
 };
 
 export default defineConfig({
-  presets: [
-    presetWind(),
-    presetRemToPx({ baseFontSize: 4 }),
-    presetResolveRpx(),
-  ],
+  presets: [presetWind(), presetRemToPx({ baseFontSize: 4 }), presetResolveRpx()],
   transformers: [transformerVariantGroup()],
   rules: [
     [

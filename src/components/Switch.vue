@@ -4,22 +4,11 @@
     :style="switchStyle"
     @click="onSwitchClick"
   >
-    <div
-      class="absolute bg-#355dff overflow-hidden transition-all duration-400"
-      :style="switchBoxStyle"
-    />
-    <div
-      class="absolute transition-all duration-400"
-      :style="closeIconStyle"
-      v-if="!!closeIcon"
-    >
+    <div class="absolute bg-#355dff overflow-hidden transition-all duration-400" :style="switchBoxStyle" />
+    <div class="absolute transition-all duration-400" :style="closeIconStyle" v-if="!!closeIcon">
       <slot name="closeIcon"></slot>
     </div>
-    <div
-      class="absolute transition-all duration-400"
-      :style="openIconStyle"
-      v-if="!!openIcon"
-    >
+    <div class="absolute transition-all duration-400" :style="openIconStyle" v-if="!!openIcon">
       <slot name="openIcon"></slot>
     </div>
   </div>
@@ -56,15 +45,12 @@ const switchStyle = computed(() => ({
   width: `${width}px`,
   height: `${height}px`,
   borderRadius: `${height / 2}px`,
-  backgroundColor:
-    (isControlled && open) || (!isControlled && ownOpen.value)
-      ? '#1a1c20'
-      : '#1a1c20',
+  backgroundColor: (isControlled && open) || (!isControlled && ownOpen.value) ? '#1a1c20' : '#1a1c20',
 }));
 
 const switchBoxStyle = computed(() => {
-  return (isControlled && open) || (!isControlled && ownOpen.value)
-    ? {
+  return (isControlled && open) || (!isControlled && ownOpen.value) ?
+      {
         width: `${height * 0.8}px`,
         height: `${height * 0.8}px`,
         borderRadius: '50%',

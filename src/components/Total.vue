@@ -9,9 +9,7 @@
       v-if="props.visible"
       class="w-full flex justify-center h-15vh items-center transition-opacity duration-300 ease-in"
     >
-      <div
-        class="fixed flex justify-center items-center w-auto h-auto bg-#000 px-1vw py-1vh rounded-15"
-      >
+      <div class="fixed flex justify-center items-center w-auto h-auto bg-#000 px-1vw py-1vh rounded-15">
         <div class="animation" :data-text="props.title">{{ props.title }}</div>
       </div>
     </div>
@@ -34,12 +32,7 @@ const props = defineProps<{
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(
-      to right,
-      rgb(236, 72, 153),
-      rgb(239, 68, 68),
-      rgb(234, 179, 8)
-    );
+    background-image: linear-gradient(to right, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;

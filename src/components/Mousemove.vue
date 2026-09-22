@@ -74,12 +74,7 @@ const render = () => {
   const bufferContext = bufferCanvas.value?.getContext('2d');
   const displayContext = displayCanvas.value?.getContext('2d');
   if (bufferCanvas.value && bufferContext && displayContext) {
-    bufferContext.clearRect(
-      0,
-      0,
-      bufferCanvas.value.width,
-      bufferCanvas.value.height,
-    );
+    bufferContext.clearRect(0, 0, bufferCanvas.value.width, bufferCanvas.value.height);
 
     circleList.value.forEach((ele: Circle, i) => {
       ele.draw(bufferContext);
@@ -90,20 +85,9 @@ const render = () => {
     });
     // Copy the contents of the bufferCanvas to the displayCanvas
     if (displayCanvas.value) {
-      displayContext.clearRect(
-        0,
-        0,
-        displayCanvas.value.width,
-        displayCanvas.value.height,
-      );
+      displayContext.clearRect(0, 0, displayCanvas.value.width, displayCanvas.value.height);
     }
-    displayContext.drawImage(
-      bufferCanvas.value,
-      0,
-      0,
-      bufferCanvas.value.width,
-      bufferCanvas.value.height,
-    );
+    displayContext.drawImage(bufferCanvas.value, 0, 0, bufferCanvas.value.width, bufferCanvas.value.height);
   }
   requestAnimationFrame(render);
 };
