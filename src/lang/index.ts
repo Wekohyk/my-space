@@ -1,7 +1,7 @@
 // localStorage.getItem('lang');
 import { createI18n } from 'vue-i18n';
-import zh from './zh';
-import en from './en';
+import zh from './zh.json';
+import en from './en.json';
 
 // judge if it is English
 export const isEn = navigator.language.includes('en') === true;

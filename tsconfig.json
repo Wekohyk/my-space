@@ -22,6 +22,7 @@
     "types": ["vite/client"],
     // "types": []
     "baseUrl": ".", // 设置基础路径,
+    "ignoreDeprecations": "6.0", // 忽略弃用警告
     "paths": {
       "@/*": ["src/*"] // 配置路径别名
     }

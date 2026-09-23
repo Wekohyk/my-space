@@ -69,7 +69,7 @@ const toggleEffectClick = () => {
 
 // jump to homepage
 const jumpHomePage = () => {
-  window.open('https://page.wekooo.com', '_self');
+  window.open('https://search.wekohyk.com', '_self');
 };
 </script>
 

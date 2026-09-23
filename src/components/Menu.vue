@@ -60,7 +60,7 @@ const urlLists = [
   },
   {
     name: `${$t('startingPage')}`,
-    url: 'https://page.wekooo.com',
+    url: 'https://search.wekohyk.com',
     src: '/svg/startingPage.svg',
   },
   // {
