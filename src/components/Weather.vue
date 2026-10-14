@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center text-#fff bg-#000/40 w-300 h-150 rounded-15">
+  <div class="flex justify-center items-center text-#fff bg-#000/40 w-400 h-150 rounded-15">
     <div class="flex items-center justify-center gap-12 flex-col">
       <div class="flex justify-center gap-10">
         <div>{{ nowTimeYear }}</div>
@@ -16,14 +16,6 @@
         <div v-if="weatherData">{{ weatherData.wind.scale }} {{ $t('level') }}</div>
         <div v-else-if="weatherError" class="text-sm">{{ weatherError }}</div>
       </div>
-      <a
-        class="text-xs text-white/80 underline"
-        href="https://www.qweather.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ isEn ? 'Weather service by QWeather' : '天气服务由和风天气提供' }}
-      </a>
     </div>
   </div>
 </template>
@@ -68,15 +60,47 @@ const locationText = computed(() => {
 const windDirection = computed(() => {
   const compass = weatherData.value?.wind.direction.compass;
   if (!compass) return '';
-  const directions: Record<string, string> = isEn
-    ? {
-        n: 'N', nne: 'NNE', ne: 'NE', ene: 'ENE', e: 'E', ese: 'ESE', se: 'SE', sse: 'SSE', s: 'S',
-        ssw: 'SSW', sw: 'SW', wsw: 'WSW', w: 'W', wnw: 'WNW', nw: 'NW', nnw: 'NNW', none: 'Calm', vrb: 'Variable',
+  const directions: Record<string, string> =
+    isEn ?
+      {
+        n: 'N',
+        nne: 'NNE',
+        ne: 'NE',
+        ene: 'ENE',
+        e: 'E',
+        ese: 'ESE',
+        se: 'SE',
+        sse: 'SSE',
+        s: 'S',
+        ssw: 'SSW',
+        sw: 'SW',
+        wsw: 'WSW',
+        w: 'W',
+        wnw: 'WNW',
+        nw: 'NW',
+        nnw: 'NNW',
+        none: 'Calm',
+        vrb: 'Variable',
       }
     : {
-        n: '北', nne: '北东北', ne: '东北', ene: '东东北', e: '东', ese: '东东南', se: '东南', sse: '南东南',
-        s: '南', ssw: '南西南', sw: '西南', wsw: '西西南', w: '西', wnw: '西西北', nw: '西北', nnw: '北西北',
-        none: '静风', vrb: '不定风向',
+        n: '北',
+        nne: '北东北',
+        ne: '东北',
+        ene: '东东北',
+        e: '东',
+        ese: '东东南',
+        se: '东南',
+        sse: '南东南',
+        s: '南',
+        ssw: '南西南',
+        sw: '西南',
+        wsw: '西西南',
+        w: '西',
+        wnw: '西西北',
+        nw: '西北',
+        nnw: '北西北',
+        none: '静风',
+        vrb: '不定风向',
       };
   return directions[compass.toLowerCase()] || compass;
 });
@@ -98,7 +122,7 @@ const getWeatherData = async () => {
         weatherError.value = '天气信息获取失败';
       }
     },
-    async (error) => {
+    async error => {
       console.error('定位获取失败:', error.message);
       await getBeijingWeather();
     },

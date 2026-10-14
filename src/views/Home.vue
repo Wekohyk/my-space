@@ -1,3 +1,48 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import BackgroundImg from '../components/BackgroundImg.vue';
+import { helloInit } from '../utils/getTIme';
+import MyMessage from '../components/MyMessage.vue';
+import Loading from '../components/Loading.vue';
+import Mousemove from '../components/Mousemove.vue';
+import Total from '../components/Total.vue';
+import { isEn } from '../lang/index';
+
+const visible = ref<boolean>(false);
+const messageNum = ref<string>('1');
+const mouseenter = (id: string) => {
+  if (id === '1') {
+    messageNum.value = '1';
+  }
+  if (id === '2') {
+    messageNum.value = '2';
+  }
+  visible.value = true;
+};
+const mouseleave = () => {
+  visible.value = false;
+};
+
+// toggle effect
+const toggleEffect = ref<boolean>(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    // welcome message
+    helloInit();
+  }, 2000);
+});
+
+const toggleEffectClick = () => {
+  toggleEffect.value = !toggleEffect.value;
+};
+
+// jump to homepage
+const jumpHomePage = () => {
+  window.open('https://search.wekohyk.com', '_self');
+};
+</script>
+
 <template>
   <Loading></Loading>
   <BackgroundImg></BackgroundImg>
@@ -45,52 +90,11 @@
     >
       陕ICP备2026028899号-1
     </a>
+    <a class="text-white/72" href="https://www.qweather.com/" target="_blank" rel="noopener noreferrer">
+      {{ isEn ? 'Weather service by QWeather' : '天气服务由和风天气提供' }}
+    </a>
   </footer>
 </template>
-
-<script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import BackgroundImg from '../components/BackgroundImg.vue';
-import { helloInit } from '../utils/getTIme';
-import MyMessage from '../components/MyMessage.vue';
-import Loading from '../components/Loading.vue';
-import Mousemove from '../components/Mousemove.vue';
-import Total from '../components/Total.vue';
-
-const visible = ref<boolean>(false);
-const messageNum = ref<string>('1');
-const mouseenter = (id: string) => {
-  if (id === '1') {
-    messageNum.value = '1';
-  }
-  if (id === '2') {
-    messageNum.value = '2';
-  }
-  visible.value = true;
-};
-const mouseleave = () => {
-  visible.value = false;
-};
-
-// toggle effect
-const toggleEffect = ref<boolean>(true);
-
-onMounted(() => {
-  setTimeout(() => {
-    // welcome message
-    helloInit();
-  }, 2000);
-});
-
-const toggleEffectClick = () => {
-  toggleEffect.value = !toggleEffect.value;
-};
-
-// jump to homepage
-const jumpHomePage = () => {
-  window.open('https://search.wekohyk.com', '_self');
-};
-</script>
 
 <style lang="scss" scoped>
 .toggle {

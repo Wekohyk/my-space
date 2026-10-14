@@ -1,5 +1,5 @@
 <template>
-  <div class="w-300 h-150 bg-#000/40 rounded-20 px-40">
+  <div class="w-400 h-150 bg-#000/40 rounded-20 px-40">
     <Swiper
       init
       direction="horizontal"
@@ -83,11 +83,11 @@ const urlLists = [
   //   url: 'https://note.wekooo.com/index.php/category/curriculum-vitae/',
   //   src: '/svg/curriculum.svg',
   // },
-  {
-    name: `${$t('jsComponents')}`,
-    url: 'https://jscomponents.wekooo.com',
-    src: '/svg/jsComponents.svg',
-  },
+  // {
+  //   name: `${$t('jsComponents')}`,
+  //   url: 'https://jscomponents.wekooo.com',
+  //   src: '/svg/jsComponents.svg',
+  // },
 ];
 
 const urlList = computed(() => {
