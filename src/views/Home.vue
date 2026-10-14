@@ -39,7 +39,7 @@ const toggleEffectClick = () => {
 
 // jump to homepage
 const jumpHomePage = () => {
-  window.open('https://search.wekohyk.com', '_self');
+  window.open('https://search.wekohyk.cn', '_self');
 };
 </script>
 
