@@ -35,5 +35,11 @@ export default defineConfig({
   server: {
     // Whether to open the browser automatically when the server starts.ƒ
     open: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:18765',
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
 });

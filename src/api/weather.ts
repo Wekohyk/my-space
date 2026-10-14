@@ -1,15 +1,40 @@
 /**
- * 天气
+ * Weather API backed by the separately deployed QWeather proxy service.
  */
+export interface CurrentWeather {
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+  condition: {
+    text: string;
+  };
+  temperature: {
+    value: number;
+    unit: string;
+  };
+  wind: {
+    direction: {
+      compass: string;
+    };
+    speed: {
+      value: number;
+      unit: string;
+    };
+    scale: number;
+  };
+}
 
-// 获取高德地理位置信息
-export const getAdcode = async (key: string) => {
-  const res = await fetch(`https://restapi.amap.com/v3/ip?key=${key}`);
-  return await res.json();
-};
+export const getWeather = async (latitude: number, longitude: number): Promise<CurrentWeather> => {
+  const params = new URLSearchParams({ latitude: String(latitude), longitude: String(longitude) });
+  const endpoint = import.meta.env.DEV
+    ? '/api/weather'
+    : 'https://weather-origin.wekohyk.cn/api/weather';
+  const response = await fetch(`${endpoint}?${params.toString()}`);
 
-// 获取高德地理天气信息
-export const getWeather = async (key: string, city: string | null) => {
-  const res = await fetch(`https://restapi.amap.com/v3/weather/weatherInfo?key=${key}&city=${city}`);
-  return await res.json();
+  if (!response.ok) {
+    throw new Error(`天气请求失败（${response.status}）`);
+  }
+
+  return (await response.json()) as CurrentWeather;
 };

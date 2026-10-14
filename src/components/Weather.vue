@@ -9,24 +9,29 @@
         {{ nowTimeHour }}
       </div>
       <div class="flex justify-center gap-10">
-        <div>{{ weatherData.lives[0].province + weatherData.lives[0].city }}</div>
-        <div>{{ weatherData.lives[0].weather }}</div>
-        <div>{{ weatherData.lives[0].temperature + '℃' }}</div>
-        <div>{{ weatherData.lives[0].winddirection + $t('wind') }}</div>
-        <div>{{ weatherData.lives[0].windpower + ' ' + $t('level') }}</div>
+        <div v-if="weatherData">{{ locationText }}</div>
+        <div v-if="weatherData">{{ weatherData.condition.text }}</div>
+        <div v-if="weatherData">{{ weatherData.temperature.value }}{{ weatherData.temperature.unit }}</div>
+        <div v-if="weatherData">{{ windDirection }}{{ $t('wind') }}</div>
+        <div v-if="weatherData">{{ weatherData.wind.scale }} {{ $t('level') }}</div>
+        <div v-else-if="weatherError" class="text-sm">{{ weatherError }}</div>
       </div>
+      <a
+        class="text-xs text-white/80 underline"
+        href="https://www.qweather.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ isEn ? 'Weather service by QWeather' : '天气服务由和风天气提供' }}
+      </a>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, onUnmounted } from 'vue';
-import { getAdcode, getWeather } from '../api/weather';
-import { City, Weather } from '../types/weather';
-import { $t } from '../lang/index';
-
-// 高德地图 Key
-const mainKey = import.meta.env.VITE_WEATHER_KEY;
+import { computed, onMounted, ref, onUnmounted } from 'vue';
+import { getWeather, type CurrentWeather } from '../api/weather';
+import { $t, isEn } from '../lang/index';
 
 // get now time
 const nowTimeYear = ref<string>('');
@@ -52,53 +57,51 @@ const upTime = setInterval(() => {
   getTime();
 }, 1000);
 
-// city data
-const cityData = ref<City>({
-  adcode: '',
-  city: '',
-  info: '',
-  infoCode: '',
-  province: '',
-  rectangle: '',
-  status: '',
+const weatherData = ref<CurrentWeather | null>(null);
+const weatherError = ref('');
+const locationText = computed(() => {
+  if (!weatherData.value) return '';
+  return `${weatherData.value.location.latitude.toFixed(2)}, ${weatherData.value.location.longitude.toFixed(2)}`;
 });
-// weather data
-const weatherData = ref<Weather>({
-  count: '',
-  info: '',
-  infoCode: '',
-  lives: [
-    {
-      adcode: '',
-      city: '',
-      humidity: '',
-      humidity_float: '',
-      province: '',
-      reporttime: '',
-      temperature: '',
-      temperature_float: '',
-      weather: '',
-      winddirection: '',
-      windpower: '',
-    },
-  ],
+const windDirection = computed(() => {
+  const compass = weatherData.value?.wind.direction.compass;
+  if (!compass) return '';
+  const directions: Record<string, string> = isEn
+    ? {
+        n: 'N', nne: 'NNE', ne: 'NE', ene: 'ENE', e: 'E', ese: 'ESE', se: 'SE', sse: 'SSE', s: 'S',
+        ssw: 'SSW', sw: 'SW', wsw: 'WSW', w: 'W', wnw: 'WNW', nw: 'NW', nnw: 'NNW', none: 'Calm', vrb: 'Variable',
+      }
+    : {
+        n: '北', nne: '北东北', ne: '东北', ene: '东东北', e: '东', ese: '东东南', se: '东南', sse: '南东南',
+        s: '南', ssw: '南西南', sw: '西南', wsw: '西西南', w: '西', wnw: '西西北', nw: '西北', nnw: '北西北',
+        none: '静风', vrb: '不定风向',
+      };
+  return directions[compass.toLowerCase()] || compass;
 });
 
 // get weather data
 const getWeatherData = async () => {
-  try {
-    // get Adcode
-    const adCode = await getAdcode(mainKey);
-    if (adCode.infocode !== '10000') {
-      throw '地区查询失败';
-    }
-    cityData.value.adcode = adCode.adcode;
-    // get weather data
-    const result = await getWeather(mainKey, cityData.value.adcode);
-    weatherData.value = result;
-  } catch (error) {
-    console.error('天气信息获取失败:' + error);
+  if (!navigator.geolocation) {
+    weatherError.value = '当前浏览器不支持定位';
+    return;
   }
+
+  weatherError.value = '';
+  navigator.geolocation.getCurrentPosition(
+    async ({ coords }) => {
+      try {
+        weatherData.value = await getWeather(coords.latitude, coords.longitude);
+      } catch (error) {
+        console.error('天气信息获取失败:', error);
+        weatherError.value = '天气信息获取失败';
+      }
+    },
+    (error) => {
+      console.error('定位获取失败:', error.message);
+      weatherError.value = '请允许位置权限以获取当地天气';
+    },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 },
+  );
 };
 
 onMounted(() => {
