@@ -27,6 +27,25 @@
       </div>
     </div>
   </div>
+  <footer class="filing-footer" aria-label="网站备案信息">
+    <a
+      class="security-link"
+      href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode="
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="公安备案"
+    >
+      <img src="/images/public_security.webp" alt="公安备案" />
+    </a>
+    <a
+      class="filing-link"
+      href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode="
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      陕ICP备2026028899号-1
+    </a>
+  </footer>
 </template>
 
 <script setup lang="ts">
@@ -81,6 +100,42 @@ const jumpHomePage = () => {
     opacity: 1;
     fill: unset;
   }
+}
+
+.filing-footer {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 12px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+}
+
+.filing-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.filing-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.security-link,
+.security-link img {
+  display: block;
+}
+
+.security-link img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 // Responsive layout
