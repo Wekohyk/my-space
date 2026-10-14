@@ -3,6 +3,8 @@
  */
 export interface CurrentWeather {
   location: {
+    name: string;
+    administrativeArea: string;
     latitude: number;
     longitude: number;
   };

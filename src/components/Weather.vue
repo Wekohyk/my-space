@@ -61,7 +61,9 @@ const weatherData = ref<CurrentWeather | null>(null);
 const weatherError = ref('');
 const locationText = computed(() => {
   if (!weatherData.value) return '';
-  return `${weatherData.value.location.latitude.toFixed(2)}, ${weatherData.value.location.longitude.toFixed(2)}`;
+  const { name, administrativeArea } = weatherData.value.location;
+  if (administrativeArea && administrativeArea !== name) return `${administrativeArea} ${name}`;
+  return name;
 });
 const windDirection = computed(() => {
   const compass = weatherData.value?.wind.direction.compass;
@@ -82,7 +84,7 @@ const windDirection = computed(() => {
 // get weather data
 const getWeatherData = async () => {
   if (!navigator.geolocation) {
-    weatherError.value = '当前浏览器不支持定位';
+    await getBeijingWeather();
     return;
   }
 
@@ -96,12 +98,22 @@ const getWeatherData = async () => {
         weatherError.value = '天气信息获取失败';
       }
     },
-    (error) => {
+    async (error) => {
       console.error('定位获取失败:', error.message);
-      weatherError.value = '请允许位置权限以获取当地天气';
+      await getBeijingWeather();
     },
     { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 },
   );
+};
+
+const getBeijingWeather = async () => {
+  weatherError.value = '';
+  try {
+    weatherData.value = await getWeather(39.92, 116.41);
+  } catch (error) {
+    console.error('北京天气信息获取失败:', error);
+    weatherError.value = '天气信息获取失败';
+  }
 };
 
 onMounted(() => {

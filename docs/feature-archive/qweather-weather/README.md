@@ -2,14 +2,14 @@
 
 ## 功能概述
 
-天气卡片使用浏览器定位获取当前设备的纬度和经度，再查询和风天气实时天气。页面展示坐标、天气状况、温度、风向和风力等级，并提供和风天气来源链接。页面原有的日期、星期和时钟显示保留。
+天气卡片优先使用浏览器定位获取当前设备坐标，通过和风 GeoAPI 反查城市名称，再查询当地实时天气。页面展示城市名、天气状况、温度、风向和风力等级，不直接展示经纬度，并提供和风天气来源链接。页面原有的日期、星期和时钟显示保留。
 
-浏览器需要 HTTPS 安全上下文并获得用户的位置授权。用户拒绝定位或浏览器不支持定位时，页面会显示对应错误提示。
+浏览器需要 HTTPS 安全上下文并获得用户的位置授权。用户拒绝定位、定位失败或浏览器不支持定位时，自动改为获取北京天气。
 
 ## 请求流程
 
 ```text
-浏览器定位
+浏览器定位（失败/拒绝时使用北京坐标 39.92, 116.41）
     ↓ 纬度、经度
 本地开发：前端 GET /api/weather ── Vite 代理 ─────────┐
                                                        ├─ Python 天气服务
@@ -17,6 +17,8 @@
     ↓ ESA HTTPS 代理及回源规则（源站 SNI: wekohyk.cn）
     ↓ OpenResty 反向代理 ─────────────────────────────┘
     ↓ 用服务器私钥生成 5 分钟有效的 Ed25519 JWT
+和风天气 GeoAPI GET /geo/v2/city/lookup（坐标反查城市）
+    ↓ 城市名称
 和风天气 GET /weather/v1/current/{latitude}/{longitude}
     ↓ 实时天气 JSON
 服务器整理天气字段并返回前端
@@ -30,7 +32,7 @@ JWT 和私钥不会发送到浏览器。天气服务只接受合法范围内的�
 
 | 文件 | 用途 |
 | --- | --- |
-| `src/components/Weather.vue` | 定位、时钟、天气卡片、风向本地化与错误提示 |
+| `src/components/Weather.vue` | 定位、北京默认天气、时钟、城市名展示、风向本地化与错误提示 |
 | `src/api/weather.ts` | 前端天气响应类型；本地走 Vite 同源代理，生产走天气服务子域名 |
 | `vite.config.ts` | 本地开发时将 `/api/*` 转发到 `127.0.0.1:18765` |
 
@@ -116,11 +118,16 @@ curl --fail 'http://127.0.0.1:18765/weather?latitude=39.92&longitude=116.41'
 
 ## 接口响应
 
-前端使用以下字段：
+前端使用以下字段；城市由和风 GeoAPI 根据坐标反查，界面展示 `administrativeArea name`，不展示原始坐标：
 
 ```json
 {
-  "location": { "latitude": 39.92, "longitude": 116.41 },
+  "location": {
+    "name": "东城",
+    "administrativeArea": "北京市",
+    "latitude": 39.92,
+    "longitude": 116.41
+  },
   "condition": { "text": "多云" },
   "temperature": { "value": 17.88, "unit": "°C" },
   "wind": {
@@ -151,4 +158,5 @@ curl --fail 'http://127.0.0.1:18765/weather?latitude=39.92&longitude=116.41'
 ## 数据来源
 
 - [和风天气实时天气 API](https://dev.qweather.com/en/docs/api/weather/weather-current/)
+- [和风天气城市搜索与坐标反查 API](https://dev.qweather.com/docs/api/geoapi/city-lookup/)
 - [和风天气归属标注要求](https://dev.qweather.com/en/docs/terms/attribution/)
