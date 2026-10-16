@@ -73,18 +73,9 @@ const jumpHomePage = () => {
     </div>
   </div>
   <footer class="filing-footer" aria-label="网站备案信息">
-    <!-- <a
-      class="security-link"
-      href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode="
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="公安备案"
-    >
-      <img src="/images/public_security.webp" alt="公安备案" />
-    </a> -->
     <a
       class="filing-link"
-      href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode="
+      href="https://beian.miit.gov.cn/"
       target="_blank"
       rel="noopener noreferrer"
     >
